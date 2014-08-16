@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="kz.zvezdochet.editor.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="fragment.e4xmi">
+      </fragment>
+   </extension>
+
+   <extension-point id="editorList" name="Точка расширения справочника" schema="schema/editorList.exsd"/>
+   <extension
+         point="kz.zvezdochet.editor.editorList">
+      <editorListElement
+            class="kz.zvezdochet.editor.extension.PlaceExtension">
+      </editorListElement>
+   </extension>
+
+</plugin>
