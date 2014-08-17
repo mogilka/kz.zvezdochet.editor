@@ -32,19 +32,12 @@ public abstract class DictionaryPart extends ModelPart {
 	protected Text txtCode;
 	protected Text txtDescription;
 	protected Label lbName;
-	protected Label lbCode;
 	protected StateChangedListener stateChangedListener = null;
-	private Composite container;
+	protected Composite container;
 	private Section secDescription;
 	private Composite cmpText;
 	protected ScrolledComposite scrolledComposite;
-	
-	public Composite getContainer() {
-		if (container == null)
-			container = new Composite(scrolledComposite, SWT.NONE);
-		return container;
-	}
-	
+
 	protected void onActivated() {
 		txtName.setFocus();
 	}
@@ -58,11 +51,12 @@ public abstract class DictionaryPart extends ModelPart {
 		scrolledComposite = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.BORDER);
 		scrolledComposite.setExpandVertical(true);
 		scrolledComposite.setExpandHorizontal(true);
-		scrolledComposite.setContent(getContainer());
+		container = new Composite(scrolledComposite, SWT.NONE);
+		scrolledComposite.setContent(container);
 		
-		FormToolkit toolkit = new FormToolkit(getContainer().getDisplay());
-		secDescription = toolkit.createSection(getContainer(), Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
-		secDescription.setText("Описание");
+		FormToolkit toolkit = new FormToolkit(container.getDisplay());
+		secDescription = toolkit.createSection(container, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
+		secDescription.setText("Основные параметры");
 		secDescription.setBackgroundMode(SWT.INHERIT_NONE);
 		secDescription.setBackground(parent.getBackground());
 		
@@ -71,19 +65,19 @@ public abstract class DictionaryPart extends ModelPart {
 		lbName.setText(Messages.getString("ReferenceView.Name")); //$NON-NLS-1$
 		txtName = new Text(cmpText, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
 //		new RequiredDecoration(lbName, SWT.TOP | SWT.RIGHT);
-
-		lbCode = new Label(cmpText, SWT.NONE);
-		lbCode.setText(Messages.getString("ReferenceView.Code")); //$NON-NLS-1$
+		
+		Label lb = new Label(cmpText, SWT.NONE);
+		lb.setText(Messages.getString("ReferenceView.Code")); //$NON-NLS-1$
 		txtCode = new Text(cmpText, SWT.BORDER);
 
-		Label lb = new Label(cmpText, SWT.NONE);
+		lb = new Label(cmpText, SWT.NONE);
 		lb.setText(Messages.getString("ReferenceView.Description")); //$NON-NLS-1$
 		txtDescription = new Text(cmpText, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
 		secDescription.setClient(cmpText);
 
 		scrolledComposite.setMinSize(parent.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 		GridLayoutFactory.swtDefaults().applyTo(parent);
-		init(getContainer());
+		init(container);
 		return null;
 	}
 	
@@ -124,8 +118,8 @@ public abstract class DictionaryPart extends ModelPart {
 	@Override
 	public boolean check(int mode) throws Exception {
 		String msgBody = ""; //$NON-NLS-1$
-//		if (txtName.getText().equals(""))  //$NON-NLS-1$
-//			msgBody += lbName.getText() + '\n';
+		if (txtName.getText().equals(""))  //$NON-NLS-1$
+			msgBody += lbName.getText() + '\n';
 		if (!msgBody.equals("")) { //$NON-NLS-1$
 			DialogUtil.alertWarning(GUIutil.SOME_FIELDS_NOT_FILLED + msgBody);
 			return false;

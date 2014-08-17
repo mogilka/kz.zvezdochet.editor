@@ -2,15 +2,16 @@ package kz.zvezdochet.editor.part;
 
 import java.util.ArrayList;
 
+import javax.annotation.PostConstruct;
+
 import kz.zvezdochet.analytics.bean.GenderText;
 import kz.zvezdochet.analytics.bean.TextGenderDictionary;
 import kz.zvezdochet.bean.TextDictionary;
 import kz.zvezdochet.core.bean.Dictionary;
 import kz.zvezdochet.core.bean.Model;
-import kz.zvezdochet.core.ui.extension.ExtensionUtil;
 import kz.zvezdochet.core.ui.extension.IExtendableView;
 import kz.zvezdochet.core.ui.extension.IExtension;
-import kz.zvezdochet.core.ui.extension.ModelExtensionProvider;
+import kz.zvezdochet.core.ui.extension.ModelExtension;
 import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
 import kz.zvezdochet.editor.Activator;
@@ -38,23 +39,24 @@ public class EditorPart extends DictionaryPart implements IExtendableView {
 	private Section secMale;
 	private Section secFemale;
 
-	@Override
+	@PostConstruct @Override
 	public Composite create(Composite parent) {
+		super.create(parent);
 		createTextSection(parent);
 		createMaleSection(parent);
 		createFemaleSection(parent);
-		init(getContainer());
+		init(container);
 
 //		stateListener = new ExtensionStateListener(this);
-		providers = new ArrayList<ModelExtensionProvider>();
-		providers.addAll(ExtensionUtil.getExtensionProviders(EXT_POINT_ID));  
+		extensions = new ArrayList<ModelExtension>();
+//		extensions.addAll(ExtensionUtil.getExtensionProviders(EXT_POINT_ID));  
 		notifyChange();
 		return null;
 	}
 
 	private void createTextSection(Composite parent) {
-		FormToolkit toolkit = new FormToolkit(getContainer().getDisplay());
-		secText = toolkit.createSection(getContainer(), Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
+		FormToolkit toolkit = new FormToolkit(container.getDisplay());
+		secText = toolkit.createSection(container, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
 		secText.setText("Толкование");
 //		secText.setExpanded(true);
 		secText.setBackgroundMode(SWT.INHERIT_NONE);
@@ -65,8 +67,8 @@ public class EditorPart extends DictionaryPart implements IExtendableView {
 	}
 
 	private void createMaleSection(Composite parent) {
-		FormToolkit toolkit = new FormToolkit(getContainer().getDisplay());
-		secMale = toolkit.createSection(getContainer(), Section.TWISTIE | Section.TITLE_BAR);
+		FormToolkit toolkit = new FormToolkit(container.getDisplay());
+		secMale = toolkit.createSection(container, Section.TWISTIE | Section.TITLE_BAR);
 		secMale.setText("Мужчина");
 		secMale.setExpanded(false);
 		secMale.setBackgroundMode(SWT.INHERIT_NONE);
@@ -76,8 +78,8 @@ public class EditorPart extends DictionaryPart implements IExtendableView {
 	}
 
 	private void createFemaleSection(Composite parent) {
-		FormToolkit toolkit = new FormToolkit(getContainer().getDisplay());
-		secFemale = toolkit.createSection(getContainer(), Section.TWISTIE | Section.TITLE_BAR);
+		FormToolkit toolkit = new FormToolkit(container.getDisplay());
+		secFemale = toolkit.createSection(container, Section.TWISTIE | Section.TITLE_BAR);
 		secFemale.setText("Женщина");
 		secFemale.setExpanded(false);
 		secFemale.setBackgroundMode(SWT.INHERIT_NONE);
@@ -89,7 +91,7 @@ public class EditorPart extends DictionaryPart implements IExtendableView {
 	@Override
 	protected void init(Composite composite) {
 		if (secText == null) return;
-		super.init(getContainer());
+		super.init(container);
 		if (!secText.isDisposed()) { 
 			GridDataFactory.fillDefaults().align(SWT.FILL, SWT.FILL).
 				hint(SWT.DEFAULT, 200).grab(true, true).applyTo(secText);
@@ -112,7 +114,7 @@ public class EditorPart extends DictionaryPart implements IExtendableView {
 	
 	@Override
 	public void decorate() {
-		if (model == null) return;
+		if (null == model) return;
 		getSectionDescription().setExpanded(txtName.getText().length() > 0 |
 				txtCode.getText().length() > 0 |
 				txtDescription.getText().length() > 0);
@@ -155,8 +157,8 @@ public class EditorPart extends DictionaryPart implements IExtendableView {
 			DialogUtil.alertWarning(GUIutil.SOME_FIELDS_NOT_FILLED + msgBody);
 			return false;
 		}
-		if (providers == null) return true;
-		for (ModelExtensionProvider provider : providers) {
+		if (extensions == null) return true;
+		for (ModelExtension provider : extensions) {
 			if (provider.canHandle(dictionary)) 
 				if (!provider.check())
 					return false;
@@ -183,8 +185,8 @@ public class EditorPart extends DictionaryPart implements IExtendableView {
 		}
 		super.syncModel(mode);
 		
-		if (providers == null) return;
-		for (ModelExtensionProvider provider : providers) {
+		if (extensions == null) return;
+		for (ModelExtension provider : extensions) {
 			provider.initExtended((Dictionary)model);
 			if (provider.canHandle(dictionary)) 
 				model = provider.getExtended();
@@ -246,24 +248,24 @@ public class EditorPart extends DictionaryPart implements IExtendableView {
 	}
 
 	public static final String EXT_POINT_ID = Activator.PLUGIN_ID + ".editorPage"; //$NON-NLS-1$
-	private java.util.List<ModelExtensionProvider> providers = null;
+	private java.util.List<ModelExtension> extensions = null;
 	
 	@Override
-	public java.util.List<ModelExtensionProvider> getExtensionProviders() {
-		return providers;
+	public java.util.List<ModelExtension> getExtensions() {
+		return extensions;
 	}
 
 	@Override
 	public void initExtensions() {
-		if (providers == null) return;
+		if (extensions == null) return;
 		Dictionary dict = (Dictionary)model;
-		for (IExtension extension : providers) {
-			ModelExtensionProvider provider = (ModelExtensionProvider)extension;
+		for (IExtension extension : extensions) {
+			ModelExtension provider = (ModelExtension)extension;
 			provider.initExtended(dict);
 			if (provider.canHandle(dictionary)) {
 				provider.initExtensionView(this);
 //				provider.initStateListener(stateListener);
-				provider.initComposites(getContainer());
+				provider.initComposites(container);
 				provider.initView();
 //				setService((IBaseService)extProvider.getExtensionService());
 			} else 
@@ -275,7 +277,7 @@ public class EditorPart extends DictionaryPart implements IExtendableView {
 
 	@Override
 	public void close() {
-		for (ModelExtensionProvider provider : providers) 
+		for (ModelExtension provider : extensions) 
 			provider.close();
 		super.close();
 	}
