@@ -3,7 +3,6 @@ package kz.zvezdochet.editor.handler;
 
 import kz.zvezdochet.core.handler.Handler;
 import kz.zvezdochet.editor.part.EditorListPart;
-import kz.zvezdochet.editor.part.EditorPart;
 import kz.zvezdochet.service.PlaceService;
 
 import org.eclipse.e4.core.di.annotations.Execute;
