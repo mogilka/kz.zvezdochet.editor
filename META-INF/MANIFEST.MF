@@ -6,15 +6,6 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: kz.zvezdochet.editor.Activator
 Export-Package: kz.zvezdochet.editor;uses:="org.eclipse.ui.plugin,org.osgi.framework",
  kz.zvezdochet.editor.extension;uses:="org.eclipse.swt.widgets,kz.zvezdochet.editor.extpoint,kz.zvezdochet.core.ui.view",
- kz.zvezdochet.editor.extpoint;
-  uses:="kz.zvezdochet.core.bean,
-   kz.zvezdochet.core.ui.listener,
-   org.eclipse.swt.graphics,
-   org.eclipse.jface.viewers,
-   kz.zvezdochet.core.ui.extension,
-   org.eclipse.swt.widgets,
-   kz.zvezdochet.core.ui.view,
-   kz.zvezdochet.editor.part",
  kz.zvezdochet.editor.handler;
   uses:="org.eclipse.e4.ui.model.application,
    org.eclipse.jface.action,
