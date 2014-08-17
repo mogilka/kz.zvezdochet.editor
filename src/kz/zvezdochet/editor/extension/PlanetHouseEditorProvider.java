@@ -17,7 +17,7 @@ import org.eclipse.swt.widgets.TableItem;
  * Расширитель справочника Планеты в астрологических домах
  * @author Nataly Didenko
  */
-public class PlanetHouseEditorProvider extends EditorExtensionProvider {
+public class PlanetHouseEditorProvider extends EditorExtension {
 
 	@Override
 	public String getExtensionName() {

@@ -5,7 +5,7 @@ import kz.zvezdochet.core.ui.view.ModelComposite;
 import kz.zvezdochet.editor.ui.DiagramComposite;
 
 /**
- * Прототип расширителя справочника диаграммных объектов
+ * Прототип расширения справочника диаграммных объектов
  * @author Nataly Didenko
  */
 public class DiagramEditorProvider extends SimpleEditorProvider {

@@ -17,7 +17,7 @@ import org.eclipse.swt.widgets.TableItem;
  * Расширитель справочника категорий
  * @author Nataly Didenko
  */
-public class CategoryEditorProvider extends EditorExtensionProvider {
+public class CategoryEditorProvider extends EditorExtension {
 
 	@Override
 	public String getExtensionName() {

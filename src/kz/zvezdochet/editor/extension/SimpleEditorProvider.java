@@ -11,10 +11,10 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
 /**
- * Прототип расширителя простого справочника
+ * Прототип расширения простого справочника
  * @author Nataly Didenko
  */
-public abstract class SimpleEditorProvider extends EditorExtensionProvider {
+public abstract class SimpleEditorProvider extends EditorExtension {
 
 	@Override
 	public void createTableColumns(Table table) {

@@ -17,7 +17,7 @@ import org.eclipse.swt.widgets.TableItem;
  * Расширитель справочника Аспекты планет
  * @author Nataly Didenko
  */
-public class PlanetAspectEditorProvider extends EditorExtensionProvider {
+public class PlanetAspectEditorProvider extends EditorExtension {
 
 	@Override
 	public String getExtensionName() {

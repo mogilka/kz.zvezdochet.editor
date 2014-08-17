@@ -17,7 +17,7 @@ import org.eclipse.swt.widgets.TableItem;
  * Расширитель справочника Планеты в знаках Зодиака
  * @author Nataly Didenko
  */
-public class SynastrySignEditorProvider extends EditorExtensionProvider {
+public class SynastrySignEditorProvider extends EditorExtension {
 
 	@Override
 	public String getExtensionName() {

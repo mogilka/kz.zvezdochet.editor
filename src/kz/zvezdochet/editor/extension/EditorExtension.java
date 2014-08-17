@@ -1,22 +1,16 @@
 package kz.zvezdochet.editor.extension;
 
 import kz.zvezdochet.core.bean.Model;
-import kz.zvezdochet.core.ui.comparator.TableSortListenerFactory;
-import kz.zvezdochet.core.ui.extension.ModelExtensionProvider;
-
-import org.eclipse.jface.viewers.ITableLabelProvider;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
+import kz.zvezdochet.core.ui.extension.ModelExtension;
 
 /**
  * Прототип провайдера расширения справочника
  * @author Nataly Didenko
  */
-public abstract class EditorExtensionProvider extends ModelExtensionProvider {
-
+public abstract class EditorExtension extends ModelExtension {
+	
 	/**
-	 * Метод, возвращающий код справочника
+	 * Возвращает код справочника
 	 * @return имя класса справочника
 	 */
 	protected String getDictionary() {
@@ -27,27 +21,6 @@ public abstract class EditorExtensionProvider extends ModelExtensionProvider {
 	public boolean canHandle(Object object) {
 		return object != null && object.equals(getDictionary());
 	}
-
-	@Override
-	public void initTableColumns(Table table) {
-		String[] columns = getTableColumns();
-		for (TableColumn column : table.getColumns())
-			column.dispose();
-		for (String column : columns) {
-			TableColumn tableColumn = new TableColumn(table, SWT.NONE);
-			tableColumn.setWidth(100);
-			tableColumn.setText(column);		
-			tableColumn.addListener(SWT.Selection, TableSortListenerFactory.getListener(
-						TableSortListenerFactory.STRING_COMPARATOR));
-			tableColumn.pack();
-		}
-	}
-	
-	/**
-	 * Поиск колонок таблицы расширения
-	 * @return массив колонок таблицы
-	 */
-	protected abstract String[] getTableColumns();
 
 	@Override
 	public boolean isChanged() {
@@ -61,10 +34,6 @@ public abstract class EditorExtensionProvider extends ModelExtensionProvider {
 			composite.dispose();
 			composite = null;
 		}
-	}
-
-	public ITableLabelProvider getLabelProvider() {
-		return new EditorLabelProvider();
 	}
 
 	@Override
@@ -103,4 +72,32 @@ public abstract class EditorExtensionProvider extends ModelExtensionProvider {
 	public String getExtensionViewId() {
 		return "kz.zvezdochet.editor.part.item";
 	}
+
+//	@Override
+//	public void deleteModel(View view, ISaveListener listener) {
+//		EditorListPart listview = (EditorListPart)view;
+//		Object object = listview.getModel();
+//		if (null == object) return;
+//		TableItem tableItem = (TableItem)object;
+//		Long id = Long.valueOf(tableItem.getText(0));
+//		if (DialogUtil.alertConfirm(GUIutil.DO_YOU_REALLY_WANNA_DELETE_ENTRY)) {
+////			if (entity.getChildren() != null && entity.getChildren().size() > 0) {
+////				DialogUtil.alertWarning(GUIutil.DELETING_OBJECT_HAS_CHILDREN);
+////				return;
+////			} TODO написать свой обработчик экстремальных удалений
+//			try {
+//				getExtensionService().delete(id);
+//			} catch (DataAccessException e) {
+//				e.printStackTrace();
+//			}
+//			Handler.updateStatus(Messages.getString("ElementListExtPoint.ElementDeleted"), false); //$NON-NLS-1$
+//			listener.onSave(null);
+////			elementView = view.getSite().getPage().findView(getElementViewId()); 
+//			if (modelView != null) 
+//				((View)modelView).reset();
+//		} else {
+//			Handler.updateStatus(Messages.getString("ElementListExtPoint.CancelDeletingElement"), false); //$NON-NLS-1$
+//			listener.onCancel((Model)((ModelListView)view).getModel());
+//		}
+//	}
 }
