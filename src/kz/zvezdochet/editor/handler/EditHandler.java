@@ -37,8 +37,9 @@ public class EditHandler extends ModelOpenHandler {
 		ModelView modelView = super.openPart(part, model);
 		if (modelView != null) {
 			EditorPart editorPart = (EditorPart)modelView;
+			editorPart.setExtension(listpart.getExtension());
+			editorPart.setModel(model, true);
 //			editorPart.setListener(listpart);
-			editorPart.setDictionary(listpart.getDictionary());
 			editorPart.setEditable(true);
 //			Handler.updateStatus(Messages.getString("ElementListExtPoint.EditingElement"), false); //$NON-NLS-1$
 		}
