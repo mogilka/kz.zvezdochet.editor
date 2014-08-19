@@ -6,7 +6,9 @@
     <elements xsi:type="commands:Command" xmi:id="_3LoH0Ap4EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.command.delete" commandName="deleteCommand"/>
     <elements xsi:type="commands:Command" xmi:id="_7nIp0Ap4EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.command.refresh" commandName="refreshCommand"/>
     <elements xsi:type="commands:Command" xmi:id="_-D180Ap4EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.command.filter" commandName="filterCommand"/>
-    <elements xsi:type="commands:Command" xmi:id="_zJAsgAqwEeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.command.place" commandName="placeCommand"/>
+    <elements xsi:type="commands:Command" xmi:id="_zJAsgAqwEeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.command.dict" commandName="dictCommand">
+      <parameters xmi:id="_gYcuICfIEeSJ3vCiyqF2rQ" elementId="kz.zvezdochet.editor.commandparameter.dict" name="dict" optional="false"/>
+    </elements>
     <elements xsi:type="commands:Command" xmi:id="_mKHQUAq0EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.command.save" commandName="saveCommand"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_UXlp8AnwEeS65tNDXP9q7A" featurename="handlers" parentElementId="org.eclipse.e4.ide.application">
@@ -15,12 +17,17 @@
     <elements xsi:type="commands:Handler" xmi:id="_0_7WMAqBEeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handler.delete" command="_3LoH0Ap4EeSCVMUYVe4vfg"/>
     <elements xsi:type="commands:Handler" xmi:id="_2fYWwAqBEeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handler.refresh" command="_7nIp0Ap4EeSCVMUYVe4vfg"/>
     <elements xsi:type="commands:Handler" xmi:id="_55RDsAqBEeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handler.filter" command="_-D180Ap4EeSCVMUYVe4vfg"/>
-    <elements xsi:type="commands:Handler" xmi:id="_4WzAAAqwEeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handler.place" contributionURI="bundleclass://kz.zvezdochet.editor/kz.zvezdochet.editor.handler.PlaceHandler" command="_zJAsgAqwEeSCVMUYVe4vfg"/>
+    <elements xsi:type="commands:Handler" xmi:id="_4WzAAAqwEeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handler.dict" contributionURI="bundleclass://kz.zvezdochet.editor/kz.zvezdochet.editor.handler.DictHandler" command="_zJAsgAqwEeSCVMUYVe4vfg"/>
     <elements xsi:type="commands:Handler" xmi:id="_0sq60Aq0EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handler.save" contributionURI="bundleclass://kz.zvezdochet.editor/kz.zvezdochet.editor.handler.SaveHandler" command="_mKHQUAq0EeSCVMUYVe4vfg"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_svTUUAnzEeS65tNDXP9q7A" featurename="children" parentElementId="org.eclipse.ui.main.menu">
     <elements xsi:type="menu:Menu" xmi:id="_1aC24AnzEeS65tNDXP9q7A" elementId="kz.zvezdochet.editor.menu.dict" label="&#x421;&#x43f;&#x440;&#x430;&#x432;&#x43e;&#x447;&#x43d;&#x438;&#x43a;&#x438;">
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_HzodUAn0EeS65tNDXP9q7A" elementId="kz.zvezdochet.editor.handledmenuitem.place" label="&#x41c;&#x435;&#x441;&#x442;&#x43e;&#x43d;&#x430;&#x445;&#x43e;&#x436;&#x434;&#x435;&#x43d;&#x438;&#x435;" iconURI="platform:/plugin/kz.zvezdochet.editor/icons/library.gif" command="_zJAsgAqwEeSCVMUYVe4vfg"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_HzodUAn0EeS65tNDXP9q7A" elementId="kz.zvezdochet.editor.handledmenuitem.place" label="&#x41c;&#x435;&#x441;&#x442;&#x43e;&#x43d;&#x430;&#x445;&#x43e;&#x436;&#x434;&#x435;&#x43d;&#x438;&#x435;" iconURI="platform:/plugin/kz.zvezdochet.editor/icons/library.gif" command="_zJAsgAqwEeSCVMUYVe4vfg">
+        <parameters xmi:id="_-zXYcCfIEeSJ3vCiyqF2rQ" elementId="kz.zvezdochet.editor.parameter.place" name="kz.zvezdochet.editor.commandparameter.dict" value="places"/>
+      </children>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_f1KI8CfKEeSJ3vCiyqF2rQ" elementId="kz.zvezdochet.editor.handledmenuitem.element" label="&#x421;&#x442;&#x438;&#x445;&#x438;&#x438;" iconURI="platform:/plugin/kz.zvezdochet.analytics/icons/lightning.png" command="_zJAsgAqwEeSCVMUYVe4vfg">
+        <parameters xmi:id="_B-zu0CfLEeSJ3vCiyqF2rQ" elementId="kz.zvezdochet.editor.parameter.element" name="kz.zvezdochet.editor.commandparameter.dict" value="elements"/>
+      </children>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_xTzk0An0EeS65tNDXP9q7A" featurename="children" parentElementId="kz.zvezdochet.runner.perspectivestack.main">

@@ -16,5 +16,11 @@
             class="kz.zvezdochet.editor.extension.PlaceExtension">
       </editorListElement>
    </extension>
+   <extension
+         point="kz.zvezdochet.editor.editorList">
+      <editorListElement
+            class="kz.zvezdochet.editor.extension.ElementExtension">
+      </editorListElement>
+   </extension>
 
 </plugin>
