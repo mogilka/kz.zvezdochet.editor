@@ -14,7 +14,7 @@ public abstract class EditorExtension extends ModelExtension {
 	 * @return имя класса справочника
 	 */
 	protected String getDictionary() {
-		return getExtensionService().getTableName();
+		return getService().getTableName();
 	}
 
 	@Override
@@ -31,16 +31,16 @@ public abstract class EditorExtension extends ModelExtension {
 	public void close() {
 		model = null;
 		if (composite != null) {
-			composite.dispose();
+//			composite.dispose();TODO
 			composite = null;
 		}
 	}
 
 	@Override
-	public void deleteExtension() {}
+	public void delete() {}
 
 	@Override
-	public Model getExtended() {
+	public Model getModel() {
 		try {
 			return composite != null ? (Model)composite.getModel(0, true) : null;
 		} catch (Exception e) {
@@ -57,7 +57,7 @@ public abstract class EditorExtension extends ModelExtension {
 //				ModelView view = null;
 //				IWorkbenchPage page = PlatformUtil.getActivePage();
 //				view = (ModelView)page.findView(viewid);
-//				if (view == null)
+//				if (null == view)
 //					view = (ModelView)page.showView(viewid, null, IWorkbenchPage.VIEW_CREATE);
 //			} catch (PartInitException e) {
 //				e.printStackTrace();
@@ -86,7 +86,7 @@ public abstract class EditorExtension extends ModelExtension {
 ////				return;
 ////			} TODO написать свой обработчик экстремальных удалений
 //			try {
-//				getExtensionService().delete(id);
+//				getService().delete(id);
 //			} catch (DataAccessException e) {
 //				e.printStackTrace();
 //			}

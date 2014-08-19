@@ -3,33 +3,39 @@ package kz.zvezdochet.editor.extension;
 import kz.zvezdochet.bean.Place;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
-import kz.zvezdochet.core.ui.view.ModelComposite;
 import kz.zvezdochet.core.ui.view.ModelLabelProvider;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.core.util.CalcUtil;
 import kz.zvezdochet.editor.ui.PlaceComposite;
 import kz.zvezdochet.service.PlaceService;
 
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.widgets.Composite;
 
 /**
- * Расширение справочника АТЕ
+ * Расширение справочника Административно-территориальных единиц
  * @author Nataly Didenko
  */
 public class PlaceExtension extends EditorExtension {
 
 	@Override
-	public String getExtensionName() {
-		return "Административно-территориальные единицы";
+	public String getName() {
+		return "Местонахождение";
 	}
-	
+
 	@Override
-	public IModelService getExtensionService() {
+	public String getIconURI() {
+		return "platform:/plugin/kz.zvezdochet/icons/globe.png";
+	}
+
+	@Override
+	public IModelService getService() {
 		return new PlaceService();
 	}
 
 	@Override
-	public ModelComposite initExtensionComposite() {
-		return new PlaceComposite();
+	public View initComposite(Composite parent) {
+		return new PlaceComposite().create(parent);
 	}
 
 	@Override

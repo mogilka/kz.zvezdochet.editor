@@ -2,7 +2,7 @@ package kz.zvezdochet.editor.extension;
 
 /**
  * Интерфейс обработчика изменений состояния расширений справочника
- * @author nataly
+ * @author Nataly Didenko
  */
 public interface IEditorStateListener {
 	/**

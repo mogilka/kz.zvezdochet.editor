@@ -8,20 +8,14 @@ import kz.zvezdochet.editor.ui.DiagramComposite;
  * Прототип расширения справочника диаграммных объектов
  * @author Nataly Didenko
  */
-public class DiagramEditorProvider extends SimpleEditorProvider {
+public abstract class DiagramExtension extends SimpleExtension {
 
 	public ModelComposite initExtensionComposite() {
 		return new DiagramComposite();
 	}
 
 	@Override
-	public Dictionary getExtended() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Object getExtensionService() {
+	public Dictionary getModel() {
 		// TODO Auto-generated method stub
 		return null;
 	}

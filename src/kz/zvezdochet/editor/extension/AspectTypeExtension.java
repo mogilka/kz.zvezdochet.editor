@@ -1,14 +1,17 @@
 package kz.zvezdochet.editor.extension;
 
+import kz.zvezdochet.bean.AspectType;
+import kz.zvezdochet.core.bean.Model;
+import kz.zvezdochet.core.service.IModelService;
 import kz.zvezdochet.core.ui.view.ModelComposite;
 import kz.zvezdochet.editor.ui.AspectTypeComposite;
 import kz.zvezdochet.service.AspectTypeService;
 
 /**
- * Расширитель справочника видов аспектов
+ * Расширение справочника видов аспектов
  * @author Nataly Didenko
  */
-public class AspectTypeEditorProvider extends SimpleEditorProvider {
+public class AspectTypeExtension extends SimpleExtension {
 
 	@Override
 	public String getName() {
@@ -16,11 +19,16 @@ public class AspectTypeEditorProvider extends SimpleEditorProvider {
 	}
 	
 	@Override
-	public Object getExtensionService() {
+	public IModelService getService() {
 		return new AspectTypeService();
 	}
 
 	public ModelComposite initExtensionComposite() {
 		return new AspectTypeComposite();
+	}
+
+	@Override
+	public Model create() {
+		return new AspectType();
 	}
 }
