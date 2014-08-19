@@ -3,6 +3,9 @@ package kz.zvezdochet.editor.ui;
 import kz.zvezdochet.bean.Place;
 import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
 import kz.zvezdochet.core.ui.listener.NumberInputListener;
+import kz.zvezdochet.core.ui.util.DialogUtil;
+import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.core.util.CalcUtil;
 import kz.zvezdochet.part.Messages;
 
@@ -28,7 +31,7 @@ public class PlaceComposite extends DictionaryComposite {
 	private Label lbLongitude;
 	
 	@Override
-	public Composite create(Composite parent) {
+	public View create(Composite parent) {
 		group = new Group(parent, SWT.NONE);
 		group.setText("Местность");
 		lbLatitude = new Label(group, SWT.NONE);
@@ -48,7 +51,7 @@ public class PlaceComposite extends DictionaryComposite {
 		decorate();
 		init(group);
 		syncView();
-		return group;
+		return this;
 	}
 	
 	@Override
@@ -110,10 +113,24 @@ public class PlaceComposite extends DictionaryComposite {
 	
 	@Override
 	public void syncModel(int mode) {
-		if (model == null) return;
+		if (null == model) return;
 		Place place = (Place)model;
 		place.setLatitude(Double.parseDouble(txLatitude.getText()));
 		place.setLongitude(Double.parseDouble(txLongitude.getText()));
 		place.setGreenwich(Double.parseDouble(txGreenwich.getText()));
+	}
+
+	@Override
+	public boolean check(int mode) throws Exception {
+		String msgBody = ""; //$NON-NLS-1$
+		if (txLatitude.getText().length() == 0) 
+			msgBody += lbLatitude.getText();
+		if (txLongitude.getText().length() == 0) 
+			msgBody += lbLongitude.getText();
+		if (msgBody.length() > 0) { //$NON-NLS-1$
+			DialogUtil.alertWarning(GUIutil.SOME_FIELDS_NOT_FILLED + msgBody);
+			return false;
+		}
+		return true;
 	}
 }

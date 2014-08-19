@@ -6,6 +6,7 @@ import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
 import kz.zvezdochet.core.ui.view.Messages;
 import kz.zvezdochet.core.ui.view.ModelPart;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.core.util.StringUtil;
 
 import org.eclipse.jface.layout.GridDataFactory;
@@ -47,7 +48,7 @@ public abstract class DictionaryPart extends ModelPart {
 	}
 
 	@Override
-	public Composite create(Composite parent) {
+	public View create(Composite parent) {
 		scrolledComposite = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.BORDER);
 		scrolledComposite.setExpandVertical(true);
 		scrolledComposite.setExpandHorizontal(true);
@@ -129,16 +130,16 @@ public abstract class DictionaryPart extends ModelPart {
 	@Override
 	protected void syncView() {		
 		reset();
-		if (model == null) return;
+		if (null == model) return;
 		txtName.setText(StringUtil.safeString(((Dictionary)model).getName()));
 		txtCode.setText(StringUtil.safeString(((Dictionary)model).getCode()));
 		txtDescription.setText(StringUtil.safeString(((Dictionary)model).getDescription()));
 	}
 
 	@Override
-	protected void syncModel(int mode) throws Exception {
-		if (!check(mode)) return;
-		if (model == null) 
+	public void syncModel(int mode) throws Exception {
+//		if (!(model instanceof Dictionary)) return;
+		if (null == model) 
 			model = (Model)addModel();
 		((Dictionary)model).setName(txtName.getText());
 		((Dictionary)model).setCode(txtCode.getText());	

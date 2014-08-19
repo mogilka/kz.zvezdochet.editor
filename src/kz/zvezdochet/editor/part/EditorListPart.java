@@ -7,6 +7,7 @@ import kz.zvezdochet.core.service.DataAccessException;
 import kz.zvezdochet.core.ui.extension.ModelExtension;
 import kz.zvezdochet.core.ui.listener.ISaveListener;
 import kz.zvezdochet.core.ui.view.ModelListView;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.Activator;
 
 import org.eclipse.jface.viewers.IBaseLabelProvider;
@@ -21,7 +22,7 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 	public static final String ID = EditorListPart.class.getCanonicalName();
 
 	@PostConstruct @Override
-	public Composite create(Composite parent) {
+	public View create(Composite parent) {
 		extPointId = Activator.PLUGIN_ID + ".editorList";
 		return super.create(parent);
 	}
@@ -52,22 +53,25 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 		addColumns();
 		tableViewer.setLabelProvider(getLabelProvider());
 		try {
-			setData(extension.getModelList());
+			if (extension != null)
+				setData(extension.getModelList());
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 		}
 		table.update();
+		if (extension != null) {
+			part.setLabel(extension.getName());
+			part.setIconURI(extension.getIconURI());
+		}
 	}
 
 	public String getDictionary() {
 		return dictionary;
 	}
 
-//	@Override
-//	public Object getModel() { //TODO зачем этот оверайд?
-//		TableItem[] items = table.getSelection();
-//		return (items != null && items.length > 0) ? items[0] : null;
-//	}
+	public ModelExtension getExtension() {
+		return extension;
+	}
 
 	@Override
 	protected IBaseLabelProvider getLabelProvider() {
