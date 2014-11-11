@@ -1,6 +1,6 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.analytics.bean.PlanetHouseTextDictionary;
+import kz.zvezdochet.analytics.bean.PlanetHouseText;
 import kz.zvezdochet.bean.AspectType;
 import kz.zvezdochet.bean.House;
 import kz.zvezdochet.bean.Planet;
@@ -44,23 +44,21 @@ public class PlanetHouseComposite extends PlanetSignComposite {
 	@Override
 	protected void syncView() {
 		reset();
-		setCodeEdit(true);
 		if (model != null) {
-			PlanetHouseTextDictionary dict = (PlanetHouseTextDictionary)model;
+			PlanetHouseText dict = (PlanetHouseText)model;
 			if (dict.getAspectType() != null)
-				cmbType.setText(dict.getAspectType().getName());
+				cvType.getCombo().setText(dict.getAspectType().getName());
 			if (dict.getPlanet() != null)
-				cmbObject1.setText(dict.getPlanet().getName());
+				cvObject1.getCombo().setText(dict.getPlanet().getName());
 			if (dict.getHouse() != null)
-				cmbObject2.setText(dict.getHouse().getName());
+				cvObject2.getCombo().setText(dict.getHouse().getName());
 		} 
-		setCodeEdit(false);
 	}
 	
 	@Override
-	public void viewToModel() {
-		if (model == null) return;
-		PlanetHouseTextDictionary dict = (PlanetHouseTextDictionary)model;
+	public void syncModel(int mode) {
+		if (null == model) return;
+		PlanetHouseText dict = (PlanetHouseText)model;
 		IStructuredSelection selection = (IStructuredSelection)cvType.getSelection();
 		if (selection.getFirstElement() != null) 
 			dict.setAspectType((AspectType)selection.getFirstElement());

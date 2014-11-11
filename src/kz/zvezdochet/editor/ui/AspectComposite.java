@@ -8,6 +8,7 @@ import kz.zvezdochet.core.ui.listener.NumberInputListener;
 import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
 import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.service.AspectTypeService;
 
 import org.eclipse.jface.layout.GridDataFactory;
@@ -16,7 +17,6 @@ import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
@@ -26,9 +26,8 @@ import org.eclipse.swt.widgets.Text;
  * Композит типа аспекта
  * @author Nataly Didenko
  */
-public class AspectComposite extends DictionaryComposite {
+public class AspectComposite extends EditorComposite {
 	private ComboViewer cvType;
-	private Combo cmbType;
 	private Label lbType;
 	private Label lbValue;
 	private Label lbOrbis;
@@ -36,14 +35,13 @@ public class AspectComposite extends DictionaryComposite {
 	private Text txOrbis;
 	
 	@Override
-	public Composite create(Composite parent) {
+	public View create(Composite parent) {
 		group = new Group(parent, SWT.NONE);
 		group.setText("Аспект");
 		
 		lbType = new Label(group, SWT.NONE);
 		lbType.setText("Тип");
 		cvType = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		cmbType = cvType.getCombo();
 		new RequiredDecoration(lbType, SWT.TOP | SWT.RIGHT);
 
 		lbValue = new Label(group, SWT.NONE);
@@ -64,7 +62,7 @@ public class AspectComposite extends DictionaryComposite {
 			e.printStackTrace();
 		}
 		syncView();
-		return group;
+		return this;
 	}
 	
 	@Override
@@ -79,7 +77,7 @@ public class AspectComposite extends DictionaryComposite {
 		GridDataFactory.fillDefaults().grab(true, false).align(SWT.FILL, SWT.FILL).applyTo(composite);
 		GridLayoutFactory.swtDefaults().numColumns(2).applyTo(composite);
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cmbType);
+			grab(true, false).applyTo(cvType.getCombo());
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
 			grab(true, false).applyTo(txValue);
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
@@ -99,7 +97,7 @@ public class AspectComposite extends DictionaryComposite {
 		if (model != null) {
 			Aspect dict = (Aspect)model;
 			if (dict.getType() != null)
-				cmbType.setText(dict.getType().getName());
+				cvType.getCombo().setText(dict.getType().getName());
 			txValue.setText(String.valueOf(dict.getValue()));
 			txOrbis.setText(String.valueOf(dict.getOrbis()));
 		} 
@@ -114,7 +112,7 @@ public class AspectComposite extends DictionaryComposite {
 	
 	@Override
 	public void syncModel(int mode) {
-		if (model == null) return;
+		if (null == model) return;
 		Aspect dict = (Aspect)model;
 		IStructuredSelection selection = (IStructuredSelection)cvType.getSelection();
 		if (selection.getFirstElement() != null) 

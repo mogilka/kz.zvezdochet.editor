@@ -23,7 +23,7 @@ import org.eclipse.swt.widgets.Text;
  * Композит АТЕ
  * @author Nataly Didenko
  */
-public class PlaceComposite extends DictionaryComposite {
+public class PlaceComposite extends EditorComposite {
 	private Text txLatitude;
 	private Text txLongitude;
 	private Text txGreenwich;

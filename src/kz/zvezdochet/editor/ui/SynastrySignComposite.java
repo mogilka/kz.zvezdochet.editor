@@ -1,12 +1,16 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.analytics.bean.SynastryTextDictionary;
+import kz.zvezdochet.analytics.bean.SynastryText;
 import kz.zvezdochet.bean.Planet;
 import kz.zvezdochet.bean.Sign;
 import kz.zvezdochet.core.service.DataAccessException;
 import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
 import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
+import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.View;
+import kz.zvezdochet.service.PlanetService;
+import kz.zvezdochet.service.SignService;
 
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
@@ -14,7 +18,6 @@ import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
@@ -23,82 +26,73 @@ import org.eclipse.swt.widgets.Label;
  * Композит синастрии планет в знаках партнеров
  * @author Nataly 
  */
-public class SynastrySignComposite extends DictionaryComposite {
+public class SynastrySignComposite extends EditorComposite {
 	protected ComboViewer cvPlanet;
-	protected Combo cmbPlanet;
 	protected ComboViewer cvSign1;
-	protected Combo cmbSign1;
 	protected ComboViewer cvSign2;
-	protected Combo cmbSign2;
 	protected Label lbPlanet;
 	protected Label lbSign1;
 	protected Label lbSign2;
 	
 	@Override
-	public Composite createComposite(Composite parent) {
+	public View create(Composite parent) {
 		group = new Group(parent, SWT.NONE);
 		group.setText("");
 		
 		lbPlanet = new Label(group, SWT.NONE);
 		lbPlanet.setText("Планета");
 		cvPlanet = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		cmbPlanet = cvPlanet.getCombo();
 		new RequiredDecoration(lbPlanet, SWT.TOP | SWT.RIGHT);
 
 		lbSign1 = new Label(group, SWT.NONE);
 		lbSign1.setText("Знак планеты первого партнера");
 		cvSign1 = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		cmbSign1 = cvSign1.getCombo();
 		new RequiredDecoration(lbSign1, SWT.TOP | SWT.RIGHT);
 		
 		lbSign2 = new Label(group, SWT.NONE);
 		lbSign2.setText("Знак планеты второго партнера");
 		cvSign2 = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		cmbSign2 = cvSign2.getCombo();
 		new RequiredDecoration(lbSign2, SWT.TOP | SWT.RIGHT);
 
 		decorate();
-		prepareView();
+		init(group);
 		try {
-			initializeControls();
+			initControls();
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 		}
-		setListeners();
 		syncView();
-		return group;
+		return this;
 	}
 	
 	@Override
 	protected void initControls() throws DataAccessException {
 		cvPlanet.setContentProvider(new ArrayContentProvider());
 		cvPlanet.setLabelProvider(new DictionaryLabelProvider());
-		cvPlanet.setInput(StargazerDataSet.getInstance().getPlanetList());
+		cvPlanet.setInput(new PlanetService().getList());
 
+		SignService service = new SignService();
 		cvSign1.setContentProvider(new ArrayContentProvider());
 		cvSign1.setLabelProvider(new DictionaryLabelProvider());
-		cvSign1.setInput(StargazerDataSet.getInstance().getSignList());
+		cvSign1.setInput(service.getList());
 
 		cvSign2.setContentProvider(new ArrayContentProvider());
 		cvSign2.setLabelProvider(new DictionaryLabelProvider());
-		cvSign2.setInput(StargazerDataSet.getInstance().getSignList());
+		cvSign2.setInput(service.getList());
 	}
 	
 	@Override
-	protected void prepareView() {
-		GridDataFactory.fillDefaults().grab(true, false).align(SWT.FILL, SWT.FILL).applyTo(group);
-		GridLayoutFactory.swtDefaults().numColumns(2).applyTo(group);
+	protected void init(Composite composite) {
+		GridDataFactory.fillDefaults().grab(true, false).align(SWT.FILL, SWT.FILL).applyTo(composite);
+		GridLayoutFactory.swtDefaults().numColumns(2).applyTo(composite);
 		
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cmbPlanet);
+			grab(true, false).applyTo(cvPlanet.getCombo());
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cmbSign1);
+			grab(true, false).applyTo(cvSign1.getCombo());
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cmbSign2);
-	}
-	
-	@Override
-	protected void setListeners() {
+			grab(true, false).applyTo(cvSign2.getCombo());
+
 		StateChangedListener listener = new StateChangedListener();
 		cvPlanet.addSelectionChangedListener(listener);
 		cvSign1.addSelectionChangedListener(listener);
@@ -107,33 +101,29 @@ public class SynastrySignComposite extends DictionaryComposite {
 	
 	@Override
 	protected void syncView() {
-		clear();
-		setCodeEdit(true);
+		reset();
 		if (model != null) {
-			SynastryTextDictionary dict = (SynastryTextDictionary)model;
+			SynastryText dict = (SynastryText)model;
 			if (dict.getPlanet() != null)
-				cmbPlanet.setText(dict.getPlanet().getName());
+				cvPlanet.getCombo().setText(dict.getPlanet().getName());
 			if (dict.getSign1() != null)
-				cmbSign1.setText(dict.getSign1().getName());
+				cvSign1.getCombo().setText(dict.getSign1().getName());
 			if (dict.getSign2() != null)
-				cmbSign2.setText(dict.getSign2().getName());
+				cvSign2.getCombo().setText(dict.getSign2().getName());
 		} 
-		setCodeEdit(false);
 	}
 	
 	@Override
-	public void clear() {
-		setCodeEdit(true);
+	public void reset() {
 		cvPlanet.setSelection(null);
 		cvSign1.setSelection(null);
 		cvSign2.setSelection(null);
-		setCodeEdit(false);
 	}
 	
 	@Override
-	public void syncModel() {
-		if (model == null) return;
-		SynastryTextDictionary dict = (SynastryTextDictionary)model;
+	public void syncModel(int mode) {
+		if (null == model) return;
+		SynastryText dict = (SynastryText)model;
 		IStructuredSelection selection = (IStructuredSelection)cvPlanet.getSelection();
 		if (selection.getFirstElement() != null) 
 			dict.setPlanet((Planet)selection.getFirstElement());
@@ -146,7 +136,7 @@ public class SynastrySignComposite extends DictionaryComposite {
 	}
 
 	@Override
-	public boolean check() {
+	public boolean check(int mode) {
 		String msgBody = "";  //$NON-NLS-1$
 		if (cvPlanet.getSelection().isEmpty())
 			msgBody += lbPlanet.getText() + '\n';

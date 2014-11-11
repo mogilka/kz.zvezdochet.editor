@@ -2,7 +2,7 @@ package kz.zvezdochet.editor.ui;
 
 import java.util.List;
 
-import kz.zvezdochet.analytics.bean.PlanetAspectTextDictionary;
+import kz.zvezdochet.analytics.bean.PlanetAspectText;
 import kz.zvezdochet.bean.AspectType;
 import kz.zvezdochet.bean.Planet;
 import kz.zvezdochet.core.bean.Model;
@@ -16,7 +16,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 
 /**
  * Композит справочника "Аспекты планет"
- * @author Nataly 
+ * @author Nataly Didenko
  */
 public class PlanetAspectComposite extends PlanetSignComposite {
 	
@@ -28,7 +28,7 @@ public class PlanetAspectComposite extends PlanetSignComposite {
 	}
 	
 	@Override
-	protected void initializeControls() throws DataAccessException {
+	protected void initControls() throws DataAccessException {
 		cvType.setContentProvider(new ArrayContentProvider());
 		cvType.setLabelProvider(new DictionaryLabelProvider());
 		cvType.setInput(new AspectService().getList());
@@ -46,23 +46,21 @@ public class PlanetAspectComposite extends PlanetSignComposite {
 	@Override
 	protected void syncView() {
 		reset();
-		setCodeEdit(true);
 		if (model != null) {
-			PlanetAspectTextDictionary dict = (PlanetAspectTextDictionary)model;
+			PlanetAspectText dict = (PlanetAspectText)model;
 			if (dict.getType() != null)
-				cmbType.setText(dict.getType().getName());
+				cvType.getCombo().setText(dict.getType().getName());
 			if (dict.getPlanet1() != null)
-				cmbObject1.setText(dict.getPlanet1().getName());
+				cvObject1.getCombo().setText(dict.getPlanet1().getName());
 			if (dict.getPlanet2() != null)
-				cmbObject2.setText(dict.getPlanet2().getName());
+				cvObject2.getCombo().setText(dict.getPlanet2().getName());
 		} 
-		setCodeEdit(false);
 	}
 	
 	@Override
-	public void viewToModel() {
-		if (model == null) return;
-		PlanetAspectTextDictionary dict = (PlanetAspectTextDictionary)model;
+	public void syncModel(int mode) {
+		if (null == model) return;
+		PlanetAspectText dict = (PlanetAspectText)model;
 		IStructuredSelection selection = (IStructuredSelection)cvType.getSelection();
 		if (selection.getFirstElement() != null) 
 			dict.setType((AspectType)selection.getFirstElement());

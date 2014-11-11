@@ -3,29 +3,25 @@ package kz.zvezdochet.editor.ui;
 import kz.zvezdochet.bean.Planet;
 import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
 import kz.zvezdochet.core.ui.listener.NumberInputListener;
-import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.View;
 
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
-
-import sun.swing.SwingUtilities2.Section;
+import org.eclipse.ui.forms.widgets.Section;
 
 /**
  * Композит планеты
  * @author Nataly 
  */
-public class PlanetComposite extends DictionaryComposite {
+public class PlanetComposite extends EditorComposite {
 	private Text txScore;
 	private Label lbScore;
 	private Section secSword;
@@ -58,14 +54,11 @@ public class PlanetComposite extends DictionaryComposite {
 	private Text txDamaged;
 	private Text txPerfect;
 	private Text txRetro;
-	private Label lbColor;
-	private Label lbColorView;
-	private Button btColor;
 	private Spinner spNumber;
 	private Button btFictitious;
 	
 	@Override
-	public Composite createComposite(Composite parent) {
+	public View create(Composite parent) {
 		group = new Group(parent, SWT.NONE);
 		group.setText("Планета");
 		Label lb = new Label(group, SWT.NONE);
@@ -83,20 +76,6 @@ public class PlanetComposite extends DictionaryComposite {
 		btFictitious = new Button(group, SWT.BORDER | SWT.CHECK);
 		btFictitious.setText("Фиктивная планета");
 		
-	    lbColor = new Label(group, SWT.NONE);
-	    lbColor.setText("Цвет");
-	    lbColorView = new Label(group, SWT.BORDER);
-	    lbColorView.setText("          ");
-	    btColor = new Button(group, SWT.PUSH);
-	    btColor.setText("...");
-	    btColor.setToolTipText("Выбрать цвет");
-		btColor.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent event) {
-				GUIutil.setBackgroundViaDialog(group.getShell(), lbColorView);
-			}
-		});
-		new RequiredDecoration(lbColor, SWT.TOP | SWT.RIGHT);
-
 		FormToolkit toolkit = new FormToolkit(group.getDisplay());
 		secSword = toolkit.createSection(group, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
 		secSword.setText("Меч");
@@ -208,16 +187,15 @@ public class PlanetComposite extends DictionaryComposite {
 		secRetro.setClient(cmpRetro);
 		
 		decorate();
-		prepareView();
-		setListeners();
+		init(group);
 		syncView();
-		return group;
+		return this;
 	}
 	
 	@Override
-	protected void prepareView() {
-		GridDataFactory.fillDefaults().grab(true, true).align(SWT.FILL, SWT.FILL).applyTo(group);
-		GridLayoutFactory.swtDefaults().numColumns(3).applyTo(group);
+	protected void init(Composite composite) {
+		GridDataFactory.fillDefaults().grab(true, true).align(SWT.FILL, SWT.FILL).applyTo(composite);
+		GridLayoutFactory.swtDefaults().numColumns(3).applyTo(composite);
 		GridLayoutFactory.swtDefaults().applyTo(cmpSword);
 		GridDataFactory.fillDefaults().grab(true, false).applyTo(cmpSword);
 		GridLayoutFactory.swtDefaults().applyTo(cmpShield);
@@ -288,10 +266,7 @@ public class PlanetComposite extends DictionaryComposite {
 			hint(SWT.DEFAULT, 100).grab(true, false).applyTo(txPerfect);
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
 			hint(SWT.DEFAULT, 100).grab(true, false).applyTo(txRetro);
-	}
-	
-	@Override
-	protected void setListeners() {
+
 		StateChangedListener listener = new StateChangedListener();
 		txScore.addModifyListener(listener);
 		txScore.addListener(SWT.Verify, new NumberInputListener());
@@ -305,15 +280,13 @@ public class PlanetComposite extends DictionaryComposite {
 		txDamaged.addModifyListener(listener);
 		txPerfect.addModifyListener(listener);
 		txRetro.addModifyListener(listener);
-		btColor.addMouseListener(listener);
 		spNumber.addModifyListener(listener);
 		btFictitious.addSelectionListener(listener);
 	}
 	
 	@Override
-	protected void modelToView() {
-		clearComposite();
-		setCodeEdit(true);
+	protected void syncView() {
+		reset();
 		if (model != null) {
 			Planet planet = (Planet)model;
 			txScore.setText(String.valueOf(planet.getScore()));
@@ -337,16 +310,13 @@ public class PlanetComposite extends DictionaryComposite {
 				txPerfect.setText(planet.getPerfectText());
 			if (planet.getRetroText() != null)
 				txRetro.setText(planet.getRetroText());
-		    lbColorView.setBackground(planet.getColor());
 			spNumber.setSelection(planet.getNumber());
 			btFictitious.setSelection(planet.isFictitious());
 		} 
-		setCodeEdit(false);
 	}
 	
 	@Override
-	public void clearComposite() {
-		setCodeEdit(true);
+	public void reset() {
 		txScore.setText("");
 		txSword.setText("");
 		txShield.setText("");
@@ -358,15 +328,13 @@ public class PlanetComposite extends DictionaryComposite {
 		txDamaged.setText("");
 		txPerfect.setText("");
 		txRetro.setText("");
-		lbColorView.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_GRAY));
 		spNumber.setSelection(0);
 		btFictitious.setSelection(false);
-		setCodeEdit(false);
 	}
 	
 	@Override
-	public void viewToModel() {
-		if (model == null) return;
+	public void syncModel(int mode) {
+		if (null == model) return;
 		Planet planet = (Planet)model;
 		planet.setScore(Double.parseDouble(txScore.getText()));
 		planet.setSwordText(txSword.getText());
@@ -379,8 +347,13 @@ public class PlanetComposite extends DictionaryComposite {
 		planet.setDamagedText(txDamaged.getText());
 		planet.setPerfectText(txPerfect.getText());
 		planet.setRetroText(txRetro.getText());
-		planet.setColor(lbColorView.getBackground());
 		planet.setNumber(spNumber.getSelection());
 		planet.setFictitious(btFictitious.getSelection());
+	}
+
+	@Override
+	public boolean check(int mode) throws Exception {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

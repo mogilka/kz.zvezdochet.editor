@@ -8,6 +8,7 @@ import kz.zvezdochet.core.ui.listener.DigitInputListener;
 import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
 import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.service.PlanetService;
 
 import org.eclipse.jface.layout.GridDataFactory;
@@ -16,7 +17,6 @@ import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
@@ -26,15 +26,14 @@ import org.eclipse.swt.widgets.Text;
  * Композит категории
  * @author Nataly 
  */
-public class CategoryComposite extends DictionaryComposite {
+public class CategoryComposite extends EditorComposite {
 	private Text txPriority;
 	private Label lbPriority;
 	protected ComboViewer cvObject;
-	protected Combo cmbObject;
 	protected Label lbObject;
 	
 	@Override
-	public Composite create(Composite parent) {
+	public View create(Composite parent) {
 		group = new Group(parent, SWT.NONE);
 		group.setText("Категория");
 		lbPriority = new Label(group, SWT.NONE);
@@ -45,7 +44,6 @@ public class CategoryComposite extends DictionaryComposite {
 		lbObject = new Label(group, SWT.NONE);
 		lbObject.setText("Планета");
 		cvObject = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		cmbObject = cvObject.getCombo();
 		new RequiredDecoration(lbObject, SWT.TOP | SWT.RIGHT);
 		
 		decorate();
@@ -56,7 +54,7 @@ public class CategoryComposite extends DictionaryComposite {
 			e.printStackTrace();
 		}
 		syncView();
-		return group;
+		return this;
 	}
 	
 	@Override
@@ -73,7 +71,7 @@ public class CategoryComposite extends DictionaryComposite {
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
 			grab(true, false).applyTo(txPriority);
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cmbObject);
+			grab(true, false).applyTo(cvObject.getCombo());
 
 		StateChangedListener listener = new StateChangedListener();
 		txPriority.addModifyListener(listener);
@@ -88,7 +86,7 @@ public class CategoryComposite extends DictionaryComposite {
 			Category dict = (Category)model;
 			txPriority.setText(String.valueOf(dict.getPriority()));
 			if (dict.getPlanet() != null)
-				cmbObject.setText(dict.getPlanet().getName());
+				cvObject.getCombo().setText(dict.getPlanet().getName());
 		} 
 	}
 	
@@ -100,7 +98,7 @@ public class CategoryComposite extends DictionaryComposite {
 	
 	@Override
 	public void syncModel(int mode) {
-		if (model == null) return;
+		if (null == model) return;
 		Category dict = (Category)model;
 		dict.setPriority(Integer.parseInt(txPriority.getText()));
 		IStructuredSelection selection = (IStructuredSelection)cvObject.getSelection();

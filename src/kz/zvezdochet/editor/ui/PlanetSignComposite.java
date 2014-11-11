@@ -1,13 +1,16 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.analytics.bean.PlanetSignTextDictionary;
+import kz.zvezdochet.analytics.bean.Category;
+import kz.zvezdochet.analytics.bean.PlanetSignText;
 import kz.zvezdochet.analytics.service.CategoryService;
 import kz.zvezdochet.bean.Planet;
 import kz.zvezdochet.bean.Sign;
 import kz.zvezdochet.core.service.DataAccessException;
 import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
 import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
+import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.service.PlanetService;
 import kz.zvezdochet.service.SignService;
 
@@ -17,7 +20,6 @@ import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
@@ -30,52 +32,46 @@ import org.eclipse.swt.widgets.Label;
  * Дирекции планет<br>
  * Синастрические аспекты<br>
  * Планеты в синастрических домах
- * @author Nataly 
+ * TODO не слишком ли много типов?
+ * @author Nataly Didenko
  */
-public class PlanetSignComposite extends DictionaryComposite {
+public class PlanetSignComposite extends EditorComposite {
 	protected ComboViewer cvType;
-	protected Combo cmbType;
 	protected ComboViewer cvObject1;
-	protected Combo cmbObject1;
 	protected ComboViewer cvObject2;
-	protected Combo cmbObject2;
 	protected Label lbType;
 	protected Label lbObject1;
 	protected Label lbObject2;
 	
 	@Override
-	public Composite create(Composite parent) {
+	public View create(Composite parent) {
 		group = new Group(parent, SWT.NONE);
 		group.setText("");
 		
 		lbType = new Label(group, SWT.NONE);
 		lbType.setText("Тип");
 		cvType = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		cmbType = cvType.getCombo();
 		new RequiredDecoration(lbType, SWT.TOP | SWT.RIGHT);
 
 		lbObject1 = new Label(group, SWT.NONE);
 		lbObject1.setText("Объект1");
 		cvObject1 = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		cmbObject1 = cvObject1.getCombo();
 		new RequiredDecoration(lbObject1, SWT.TOP | SWT.RIGHT);
 		
 		lbObject2 = new Label(group, SWT.NONE);
 		lbObject2.setText("Объект2");
 		cvObject2 = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		cmbObject2 = cvObject2.getCombo();
 		new RequiredDecoration(lbObject2, SWT.TOP | SWT.RIGHT);
 
 		decorate();
-		init();
+		init(group);
 		try {
 			initControls();
 		} catch (DataAccessException e) {
 			e.printStackTrace();
 		}
-		setListeners();
 		syncView();
-		return group;
+		return this;
 	}
 	
 	@Override
@@ -94,20 +90,17 @@ public class PlanetSignComposite extends DictionaryComposite {
 	}
 	
 	@Override
-	protected void init() {
-		GridDataFactory.fillDefaults().grab(true, true).align(SWT.FILL, SWT.FILL).applyTo(group);
-		GridLayoutFactory.swtDefaults().numColumns(2).applyTo(group);
+	protected void init(Composite composite) {
+		GridDataFactory.fillDefaults().grab(true, true).align(SWT.FILL, SWT.FILL).applyTo(composite);
+		GridLayoutFactory.swtDefaults().numColumns(2).applyTo(composite);
 		
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cmbType);
+			grab(true, false).applyTo(cvType.getCombo());
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cmbObject1);
+			grab(true, false).applyTo(cvObject1.getCombo());
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cmbObject2);
-	}
-	
-	@Override
-	protected void setListeners() {
+			grab(true, false).applyTo(cvObject2.getCombo());
+
 		StateChangedListener listener = new StateChangedListener();
 		cvType.addSelectionChangedListener(listener);
 		cvObject1.addSelectionChangedListener(listener);
@@ -117,32 +110,28 @@ public class PlanetSignComposite extends DictionaryComposite {
 	@Override
 	protected void syncView() {
 		reset();
-		setCodeEdit(true);
 		if (model != null) {
-			PlanetSignTextDictionary dict = (PlanetSignTextDictionary)model;
+			PlanetSignText dict = (PlanetSignText)model;
 			if (dict.getCategory() != null)
-				cmbType.setText(dict.getCategory().getName());
+				cvType.getCombo().setText(dict.getCategory().getName());
 			if (dict.getPlanet() != null)
-				cmbObject1.setText(dict.getPlanet().getName());
+				cvObject1.getCombo().setText(dict.getPlanet().getName());
 			if (dict.getSign() != null)
-				cmbObject2.setText(dict.getSign().getName());
+				cvObject2.getCombo().setText(dict.getSign().getName());
 		} 
-		setCodeEdit(false);
 	}
 	
 	@Override
 	public void reset() {
-		setCodeEdit(true);
 		cvType.setSelection(null);
 		cvObject1.setSelection(null);
 		cvObject2.setSelection(null);
-		setCodeEdit(false);
 	}
 	
 	@Override
-	public void syncModel() {
-		if (model == null) return;
-		PlanetSignTextDictionary dict = (PlanetSignTextDictionary)model;
+	public void syncModel(int mode) {
+		if (null == model) return;
+		PlanetSignText dict = (PlanetSignText)model;
 		IStructuredSelection selection = (IStructuredSelection)cvType.getSelection();
 		if (selection.getFirstElement() != null) 
 			dict.setCategory((Category)selection.getFirstElement());
@@ -155,7 +144,7 @@ public class PlanetSignComposite extends DictionaryComposite {
 	}
 
 	@Override
-	public boolean check() {
+	public boolean check(int mode) {
 		String msgBody = "";  //$NON-NLS-1$
 		if (cvType.getSelection().isEmpty())
 			msgBody += lbType.getText() + '\n';

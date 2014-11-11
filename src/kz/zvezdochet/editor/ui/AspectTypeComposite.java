@@ -7,6 +7,7 @@ import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
 import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
 import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.service.AspectTypeService;
 import kz.zvezdochet.service.ProtractionService;
 
@@ -19,7 +20,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
@@ -30,9 +30,8 @@ import org.eclipse.swt.widgets.Text;
  * Композит типа аспекта
  * @author Nataly Didenko
  */
-public class AspectTypeComposite extends DictionaryComposite {
+public class AspectTypeComposite extends EditorComposite {
 	protected ComboViewer cvProtraction;
-	protected Combo cmbProtraction;
 	protected Label lbProtraction;
 	protected Label lbColor;
 	protected Label lbDimColor;
@@ -41,25 +40,22 @@ public class AspectTypeComposite extends DictionaryComposite {
 	protected Button btColor;
 	protected Button btDimColor;
 	protected ComboViewer cvType;
-	protected Combo cmbType;
 	protected Label lbType;
 	protected Label lbSymbol;
 	protected Text txSymbol;
 	
 	@Override
-	public Composite create(Composite composite) {
+	public View create(Composite composite) {
 	    group = new Group(composite, SWT.NONE);
 		group.setText("Тип аспекта");
 		
 		lbType = new Label(group, SWT.NONE);
 		lbType.setText("Основной тип");
 		cvType = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		cmbType = cvType.getCombo();
 
 		lbProtraction = new Label(group, SWT.NONE);
 		lbProtraction.setText("Начертание");
 		cvProtraction = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		cmbProtraction = cvProtraction.getCombo();
 		new RequiredDecoration(lbProtraction, SWT.TOP | SWT.RIGHT);
 
 	    lbColor = new Label(group, SWT.NONE);
@@ -102,7 +98,7 @@ public class AspectTypeComposite extends DictionaryComposite {
 			e.printStackTrace();
 		}
 		syncView();
-		return group;
+		return this;
 	}
 	
 	@Override
@@ -121,9 +117,9 @@ public class AspectTypeComposite extends DictionaryComposite {
 		GridDataFactory.fillDefaults().grab(true, false).align(SWT.FILL, SWT.FILL).applyTo(composite);
 		GridLayoutFactory.swtDefaults().numColumns(3).applyTo(composite);
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).span(2, 1).applyTo(cmbProtraction);
+			grab(true, false).span(2, 1).applyTo(cvProtraction.getCombo());
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).span(2, 1).applyTo(cmbType);
+			grab(true, false).span(2, 1).applyTo(cvType.getCombo());
 		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
 			grab(true, false).span(2, 1).applyTo(txSymbol);
 
@@ -140,11 +136,11 @@ public class AspectTypeComposite extends DictionaryComposite {
 		if (model != null) {
 			AspectType dict = (AspectType)model;
 			if (dict.getParentType() != null)
-				cmbType.setText(dict.getParentType().getName());
+				cvType.getCombo().setText(dict.getParentType().getName());
 			else
 				cvType.setSelection(null);
 			if (dict.getProtraction() != null)
-				cmbProtraction.setText(dict.getProtraction().getName());
+				cvProtraction.getCombo().setText(dict.getProtraction().getName());
 			else
 				cvProtraction.setSelection(null);
 		    lbColorView.setBackground(dict.getColor());
@@ -164,7 +160,7 @@ public class AspectTypeComposite extends DictionaryComposite {
 	
 	@Override
 	public void syncModel(int mode) {
-		if (model == null) return;
+		if (null == model) return;
 		AspectType dict = (AspectType)model;
 		IStructuredSelection selection = (IStructuredSelection)cvProtraction.getSelection();
 		if (selection.getFirstElement() != null) 
