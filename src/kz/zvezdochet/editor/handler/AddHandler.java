@@ -18,6 +18,7 @@ public class AddHandler extends EditHandler {
 		listpart = (EditorListPart)activePart.getObject();
 		Model model = (Model)listpart.addModel();
 		if (null == model) return;
-		checkPart("kz.zvezdochet.editor.part.item", model);
+		MPart part = partService.findPart(getViewId());
+		checkPart(part, model);
 	}
 }
