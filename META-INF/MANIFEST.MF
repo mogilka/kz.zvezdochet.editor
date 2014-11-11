@@ -4,6 +4,7 @@ Bundle-Name: Editor
 Bundle-SymbolicName: kz.zvezdochet.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: kz.zvezdochet.editor.Activator
+Bundle-Vendor: Звездочёт
 Export-Package: kz.zvezdochet.editor;uses:="org.eclipse.ui.plugin,org.osgi.framework",
  kz.zvezdochet.editor.extension;uses:="org.eclipse.swt.widgets,kz.zvezdochet.editor.extpoint,kz.zvezdochet.core.ui.view",
  kz.zvezdochet.editor.handler;
@@ -36,7 +37,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.e4.ui.workbench,
  org.eclipse.e4.ui.model.workbench,
  org.eclipse.e4.core.contexts,
- org.eclipse.ui.forms;bundle-version="3.6.100"
+ org.eclipse.ui.forms;bundle-version="3.6.100",
+ javax.inject
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Bundle-Vendor: Звездочёт

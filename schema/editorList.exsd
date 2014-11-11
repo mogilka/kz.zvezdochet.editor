@@ -17,7 +17,7 @@
          </appinfo>
       </annotation>
       <complexType>
-         <choice>
+         <choice minOccurs="1" maxOccurs="unbounded">
             <element ref="editorListElement"/>
          </choice>
          <attribute name="point" type="string" use="required">
@@ -55,7 +55,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn="kz.zvezdochet.editor.extpoint.EditorListExtPoint:"/>
+                  <meta.attribute kind="java"/>
                </appinfo>
             </annotation>
          </attribute>
