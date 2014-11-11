@@ -19,7 +19,6 @@ import org.eclipse.swt.widgets.Composite;
  *
  */
 public class EditorListPart extends ModelListView implements ISaveListener {
-	public static final String ID = EditorListPart.class.getCanonicalName();
 
 	@PostConstruct @Override
 	public View create(Composite parent) {
@@ -28,18 +27,25 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 	}
 	
 	@Override
-	public Object addModel() {
-		if (null == extension) return null;
-		return extension.create();
+	public void addModel(Model model) {
+		if (null != extension)
+			extension.create();
 	}
 
+	/**
+	 * Расширение справочника
+	 */
 	private ModelExtension extension;
 	
 	/**
 	 * Код загружаемого справочника
 	 */
 	private String dictionary;
-	
+
+	/**
+	 * Инициализация кода справочника и расширений
+	 * @param code имя таблицы БД
+	 */
 	public void setDictionary(String code) {
 		this.dictionary = code;
 		extensions = getExtensions();
@@ -99,5 +105,10 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 			return null;
 		else
 			return extension.getTableColumns();
+	}
+
+	@Override
+	public boolean check(int mode) throws Exception {
+		return false;
 	}
 }
