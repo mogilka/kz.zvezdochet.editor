@@ -1,15 +1,15 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.bean.Element;
-import kz.zvezdochet.analytics.service.ElementService;
+import kz.zvezdochet.bean.Element;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
+import kz.zvezdochet.service.ElementService;
 
 /**
  * Расширение справочника стихий
  * @author Nataly Didenko
  */
-public class ElementExtension extends DiagramExtension {
+public class ElementExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {

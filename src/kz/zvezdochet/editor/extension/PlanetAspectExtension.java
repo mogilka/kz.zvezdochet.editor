@@ -1,14 +1,15 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.bean.PlanetAspectTextDictionary;
+import kz.zvezdochet.analytics.bean.PlanetAspectText;
 import kz.zvezdochet.analytics.service.PlanetAspectService;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
-import kz.zvezdochet.core.ui.view.ModelComposite;
 import kz.zvezdochet.core.ui.view.ModelLabelProvider;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.PlanetAspectComposite;
 
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника Аспекты планет
@@ -31,7 +32,7 @@ public class PlanetAspectExtension extends EditorExtension {
 		return new ModelLabelProvider() {
 			@Override
 			public String getColumnText(Object element, int columnIndex) {
-				PlanetAspectTextDictionary model = (PlanetAspectTextDictionary)element;
+				PlanetAspectText model = (PlanetAspectText)element;
 				switch (columnIndex) {
 					case 0: return model.getPlanet1().getName();
 					case 1: return model.getType().getName();
@@ -42,8 +43,9 @@ public class PlanetAspectExtension extends EditorExtension {
 		};
 	}
 
-	public ModelComposite initExtensionComposite() {
-		return new PlanetAspectComposite();
+	@Override
+	public View initComposite(Composite parent) {
+		return new PlanetAspectComposite().create(parent);
 	}
 
 	@Override
@@ -53,6 +55,11 @@ public class PlanetAspectExtension extends EditorExtension {
 
 	@Override
 	public Model create() {
-		return new PlanetAspectTextDictionary();
+		return new PlanetAspectText();
+	}
+
+	@Override
+	public String getIconURI() {
+		return "platform:/plugin/kz.zvezdochet.editor/icons/standards.gif";
 	}
 }

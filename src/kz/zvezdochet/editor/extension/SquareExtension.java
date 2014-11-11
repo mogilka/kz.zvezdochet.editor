@@ -1,15 +1,15 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.bean.Square;
-import kz.zvezdochet.analytics.service.SquareService;
+import kz.zvezdochet.bean.Square;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
+import kz.zvezdochet.service.SquareService;
 
 /**
  * Расширение справочника квадратов
  * @author Nataly Didenko
  */
-public class SquareExtension extends DiagramExtension {
+public class SquareExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {

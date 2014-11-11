@@ -1,15 +1,15 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.bean.Zone;
-import kz.zvezdochet.analytics.service.ZoneService;
+import kz.zvezdochet.bean.Zone;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
+import kz.zvezdochet.service.ZoneService;
 
 /**
  * Расширение справочника Зоны
  * @author Nataly Didenko
  */
-public class ZoneEditorProvider extends DiagramExtension {
+public class ZoneExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {
@@ -24,5 +24,10 @@ public class ZoneEditorProvider extends DiagramExtension {
 	@Override
 	public Model create() {
 		return new Zone();
+	}
+	
+	@Override
+	public String getIconURI() {
+		return "platform:/plugin/kz.zvezdochet.analytics/icons/selection.ico";
 	}
 }

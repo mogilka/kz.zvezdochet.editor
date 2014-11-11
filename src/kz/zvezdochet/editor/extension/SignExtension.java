@@ -13,7 +13,7 @@ import org.eclipse.swt.widgets.Composite;
  * Расширение справочника знаков Зодиака
  * @author Nataly Didenko
  */
-public class SignExtension extends SimpleExtension {
+public class SignExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {
@@ -33,5 +33,10 @@ public class SignExtension extends SimpleExtension {
 	@Override
 	public Model create() {
 		return new Sign();
+	}
+
+	@Override
+	public String getIconURI() {
+		return "platform:/plugin/kz.zvezdochet/icons/constellation.gif";
 	}
 }

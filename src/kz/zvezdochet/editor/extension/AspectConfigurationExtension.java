@@ -9,7 +9,7 @@ import kz.zvezdochet.core.service.IModelService;
  * Расширение справочника конфигураций аспектов
  * @author Nataly Didenko
  */
-public class AspectConfigurationExtension extends SimpleExtension {
+public class AspectConfigurationExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {
@@ -24,5 +24,10 @@ public class AspectConfigurationExtension extends SimpleExtension {
 	@Override
 	public Model create() {
 		return new AspectConfiguration();
+	}
+
+	@Override
+	public String getIconURI() {
+		return "platform:/plugin/kz.zvezdochet.analytics/icons/aspectconf.png";
 	}
 }

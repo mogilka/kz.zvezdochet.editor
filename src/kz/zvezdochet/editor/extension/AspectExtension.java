@@ -3,15 +3,17 @@ package kz.zvezdochet.editor.extension;
 import kz.zvezdochet.bean.Aspect;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
-import kz.zvezdochet.core.ui.view.ModelComposite;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.AspectComposite;
 import kz.zvezdochet.service.AspectService;
+
+import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника аспектов
  * @author Nataly Didenko
  */
-public class AspectExtension extends SimpleExtension {
+public class AspectExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {
@@ -23,8 +25,9 @@ public class AspectExtension extends SimpleExtension {
 		return new AspectService();
 	}
 
-	public ModelComposite initExtensionComposite() {
-		return new AspectComposite();
+	@Override
+	public View initComposite(Composite parent) {
+		return new AspectComposite().create(parent);
 	}
 
 	@Override

@@ -9,7 +9,7 @@ import kz.zvezdochet.core.service.IModelService;
  * Расширение справочника типов космограммы
  * @author Nataly Didenko
  */
-public class CardTypeExtension extends SimpleExtension {
+public class CardTypeExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {

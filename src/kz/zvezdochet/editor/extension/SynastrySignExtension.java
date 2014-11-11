@@ -1,6 +1,6 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.bean.SynastryTextDictionary;
+import kz.zvezdochet.analytics.bean.SynastryText;
 import kz.zvezdochet.analytics.service.SynastrySignService;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
@@ -31,7 +31,7 @@ public class SynastrySignExtension extends EditorExtension {
 		return new ModelLabelProvider() {
 			@Override
 			public String getColumnText(Object element, int columnIndex) {
-				SynastryTextDictionary model = (SynastryTextDictionary)element;
+				SynastryText model = (SynastryText)element;
 				switch (columnIndex) {
 					case 0: return model.getPlanet().getName();
 					case 1: return model.getSign1().getName();
@@ -53,6 +53,11 @@ public class SynastrySignExtension extends EditorExtension {
 
 	@Override
 	public Model create() {
-		return new SynastryTextDictionary();
+		return new SynastryText();
+	}
+
+	@Override
+	public String getIconURI() {
+		return "platform:/plugin/kz.zvezdochet.editor/icons/standards.gif";
 	}
 }

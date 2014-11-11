@@ -1,15 +1,15 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.bean.Halfsphere;
-import kz.zvezdochet.analytics.service.HalfsphereService;
+import kz.zvezdochet.bean.Halfsphere;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
+import kz.zvezdochet.service.HalfsphereService;
 
 /**
  * Расширение справочника полусфер
  * @author Nataly Didenko
  */
-public class HalfsphereExtension extends DiagramExtension {
+public class HalfsphereExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {

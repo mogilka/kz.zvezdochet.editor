@@ -11,7 +11,7 @@ import kz.zvezdochet.service.PlanetService;
  * Расширение справочника Планет
  * @author Nataly Didenko
  */
-public class PlanetExtension extends SimpleExtension {
+public class PlanetExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {

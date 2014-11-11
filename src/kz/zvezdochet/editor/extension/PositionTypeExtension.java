@@ -9,7 +9,7 @@ import kz.zvezdochet.service.PositionTypeService;
  * Расширение справочника позиций планет
  * @author Nataly Didenko
  */
-public class PositionTypeExtension extends SimpleExtension {
+public class PositionTypeExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {
@@ -24,5 +24,10 @@ public class PositionTypeExtension extends SimpleExtension {
 	@Override
 	public Model create() {
 		return new PositionType();
+	}
+
+	@Override
+	public String getIconURI() {
+		return "platform:/plugin/kz.zvezdochet.analytics/icons/position.png";
 	}
 }

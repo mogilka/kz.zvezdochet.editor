@@ -13,7 +13,7 @@ import org.eclipse.swt.widgets.Composite;
  * Расширение справочника домов
  * @author Nataly Didenko
  */
-public class HouseExtension extends SimpleExtension {
+public class HouseExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {

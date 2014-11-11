@@ -1,15 +1,15 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.bean.YinYang;
-import kz.zvezdochet.analytics.service.YinYangService;
+import kz.zvezdochet.bean.YinYang;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
+import kz.zvezdochet.service.YinYangService;
 
 /**
  * Расширение справочника Инь-Ян
  * @author Nataly Didenko
  */
-public class YinYangExtension extends DiagramExtension {
+public class YinYangExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {

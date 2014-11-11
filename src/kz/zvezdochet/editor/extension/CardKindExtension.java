@@ -9,7 +9,7 @@ import kz.zvezdochet.core.service.IModelService;
  * Расширение справочника видов космограммы
  * @author Nataly Didenko
  */
-public class CardKindExtension extends SimpleExtension {
+public class CardKindExtension extends DictionaryExtension {
 
 	@Override
 	public String getName() {
@@ -24,5 +24,10 @@ public class CardKindExtension extends SimpleExtension {
 	@Override
 	public Model create() {
 		return new CardKind();
+	}
+
+	@Override
+	public String getIconURI() {
+		return "platform:/plugin/kz.zvezdochet.analytics/icons/necklace.png";
 	}
 }

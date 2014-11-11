@@ -1,14 +1,15 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.bean.PlanetSignTextDictionary;
+import kz.zvezdochet.analytics.bean.PlanetSignText;
 import kz.zvezdochet.analytics.service.PlanetSignService;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
-import kz.zvezdochet.core.ui.view.ModelComposite;
 import kz.zvezdochet.core.ui.view.ModelLabelProvider;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.PlanetSignComposite;
 
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника Планеты в знаках Зодиака
@@ -18,7 +19,7 @@ public class PlanetSignExtension extends EditorExtension {
 
 	@Override
 	public String getName() {
-		return "Планеты в знаках Зодиака";
+		return "Планеты в знаках";
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public class PlanetSignExtension extends EditorExtension {
 		return new ModelLabelProvider() {
 			@Override
 			public String getColumnText(Object element, int columnIndex) {
-				PlanetSignTextDictionary model = (PlanetSignTextDictionary)element;
+				PlanetSignText model = (PlanetSignText)element;
 				switch (columnIndex) {
 					case 0: return model.getPlanet().getName();
 					case 1: return model.getSign().getName();
@@ -42,8 +43,9 @@ public class PlanetSignExtension extends EditorExtension {
 		};
 	}
 
-	public ModelComposite initExtensionComposite() {
-		return new PlanetSignComposite();
+	@Override
+	public View initComposite(Composite parent) {
+		return new PlanetSignComposite().create(parent);
 	}
 
 	@Override
@@ -53,6 +55,11 @@ public class PlanetSignExtension extends EditorExtension {
 
 	@Override
 	public Model create() {
-		return new PlanetSignTextDictionary();
+		return new PlanetSignText();
+	}
+
+	@Override
+	public String getIconURI() {
+		return "platform:/plugin/kz.zvezdochet.editor/icons/standards.gif";
 	}
 }

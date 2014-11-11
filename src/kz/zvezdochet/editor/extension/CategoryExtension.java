@@ -4,11 +4,12 @@ import kz.zvezdochet.analytics.bean.Category;
 import kz.zvezdochet.analytics.service.CategoryService;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
-import kz.zvezdochet.core.ui.view.ModelComposite;
 import kz.zvezdochet.core.ui.view.ModelLabelProvider;
+import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.CategoryComposite;
 
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника категорий
@@ -43,8 +44,9 @@ public class CategoryExtension extends EditorExtension {
 		};
 	}
 
-	public ModelComposite initExtensionComposite() {
-		return new CategoryComposite();
+	@Override
+	public View initComposite(Composite parent) {
+		return new CategoryComposite().create(parent);
 	}
 
 	@Override
