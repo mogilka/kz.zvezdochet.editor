@@ -126,16 +126,16 @@ public class GenderTextComposite extends EditorComposite {
 		}
 		GenderText gtext = dict.getGenderText();
 		if (gtext != null) {
-			if (gtext.getMaletext() != null) {
-				txMale.setText(gtext.getMaletext());
+			if (gtext.getText() != null) {
+				txMale.setText(gtext.getText());
 				secMale.setExpanded(txMale.getText().length() > 0);
 			}
-			if (gtext.getFemaletext() != null) {
-				txFemale.setText(gtext.getFemaletext());
+			if (gtext.getType() != null) {
+				txFemale.setText(gtext.getType());
 				secFemale.setExpanded(txFemale.getText().length() > 0);
 			}
-			if (gtext.getChildtext() != null) {
-				txChild.setText(gtext.getChildtext());
+			if (gtext.getObjectId() != null) {
+				txChild.setText(gtext.getObjectId());
 				secChild.setExpanded(txChild.getText().length() > 0);
 			}
 		}
@@ -147,9 +147,9 @@ public class GenderTextComposite extends EditorComposite {
 		ITextGender dict = (ITextGender)model;
 		if (null == dict.getGenderText())
 			dict.setGenderText(new GenderText());
-		dict.getGenderText().setMaletext(txMale.getText());
-		dict.getGenderText().setFemaletext(txFemale.getText());
-		dict.getGenderText().setChildtext(txChild.getText());
+		dict.getGenderText().setText(txMale.getText());
+		dict.getGenderText().setType(txFemale.getText());
+		dict.getGenderText().setObjectId(txChild.getText());
 		dict.setText(txText.getText());
 	}
 
