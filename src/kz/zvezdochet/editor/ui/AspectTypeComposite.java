@@ -1,7 +1,6 @@
 package kz.zvezdochet.editor.ui;
 
 import kz.zvezdochet.bean.AspectType;
-import kz.zvezdochet.bean.Protraction;
 import kz.zvezdochet.core.service.DataAccessException;
 import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
 import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
@@ -9,7 +8,6 @@ import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.service.AspectTypeService;
-import kz.zvezdochet.service.ProtractionService;
 
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;

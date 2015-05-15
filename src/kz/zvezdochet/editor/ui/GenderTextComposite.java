@@ -1,7 +1,7 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.core.bean.GenderText;
 import kz.zvezdochet.core.bean.ITextGender;
+import kz.zvezdochet.core.bean.TextGender;
 import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
 import kz.zvezdochet.core.ui.view.View;
@@ -124,7 +124,7 @@ public class GenderTextComposite extends EditorComposite {
 			txText.setText(dict.getText());
 			secText.setExpanded(txText.getText().length() > 0);
 		}
-		GenderText gtext = dict.getGenderText();
+		TextGender gtext = dict.getGenderTexts();
 		if (gtext != null) {
 			if (gtext.getText() != null) {
 				txMale.setText(gtext.getText());
@@ -145,11 +145,11 @@ public class GenderTextComposite extends EditorComposite {
 	public void syncModel(int mode) throws Exception {
 		if (!check(mode)) return;
 		ITextGender dict = (ITextGender)model;
-		if (null == dict.getGenderText())
-			dict.setGenderText(new GenderText());
-		dict.getGenderText().setText(txMale.getText());
-		dict.getGenderText().setType(txFemale.getText());
-		dict.getGenderText().setObjectId(txChild.getText());
+		if (null == dict.getGenderTexts())
+			dict.setGenderText(new TextGender());
+		dict.getGenderTexts().setText(txMale.getText());
+		dict.getGenderTexts().setType(txFemale.getText());
+		dict.getGenderTexts().setObjectId(txChild.getText());
 		dict.setText(txText.getText());
 	}
 
