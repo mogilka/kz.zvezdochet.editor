@@ -290,26 +290,26 @@ public class PlanetComposite extends EditorComposite {
 		if (model != null) {
 			Planet planet = (Planet)model;
 			txScore.setText(String.valueOf(planet.getScore()));
-			if (planet.getSwordText() != null)
-				txSword.setText(planet.getSwordText());
-			if (planet.getShieldText() != null)
-				txShield.setText(planet.getShieldText());
-			if (planet.getBeltText() != null)
-				txBelt.setText(planet.getBeltText());
-			if (planet.getKernelText() != null)
-				txKernel.setText(planet.getKernelText());
-			if (planet.getMineText() != null)
-				txMine.setText(planet.getMineText());
-			if (planet.getStrongText() != null)
-				txStrong.setText(planet.getStrongText());
-			if (planet.getWeakText() != null)
-				txWeak.setText(planet.getWeakText());
-			if (planet.getDamagedText() != null)
-				txDamaged.setText(planet.getDamagedText());
-			if (planet.getPerfectText() != null)
-				txPerfect.setText(planet.getPerfectText());
-			if (planet.getRetroText() != null)
-				txRetro.setText(planet.getRetroText());
+//			if (planet.getSwordText() != null)
+//				txSword.setText(planet.getSwordText());
+//			if (planet.getShieldText() != null)
+//				txShield.setText(planet.getShieldText());
+//			if (planet.getBeltText() != null)
+//				txBelt.setText(planet.getBeltText());
+//			if (planet.getKernelText() != null)
+//				txKernel.setText(planet.getKernelText());
+//			if (planet.getMineText() != null)
+//				txMine.setText(planet.getMineText());
+//			if (planet.getStrongText() != null)
+//				txStrong.setText(planet.getStrongText());
+//			if (planet.getWeakText() != null)
+//				txWeak.setText(planet.getWeakText());
+//			if (planet.getDamagedText() != null)
+//				txDamaged.setText(planet.getDamagedText());
+//			if (planet.getPerfectText() != null)
+//				txPerfect.setText(planet.getPerfectText());
+//			if (planet.getRetroText() != null)
+//				txRetro.setText(planet.getRetroText());
 			spNumber.setSelection(planet.getNumber());
 			btFictitious.setSelection(planet.isFictitious());
 		} 
@@ -337,16 +337,16 @@ public class PlanetComposite extends EditorComposite {
 		if (null == model) return;
 		Planet planet = (Planet)model;
 		planet.setScore(Double.parseDouble(txScore.getText()));
-		planet.setSwordText(txSword.getText());
-		planet.setShieldText(txShield.getText());
-		planet.setBeltText(txBelt.getText());
-		planet.setKernelText(txKernel.getText());
-		planet.setMineText(txMine.getText());
-		planet.setStrongText(txStrong.getText());
-		planet.setWeakText(txWeak.getText());
-		planet.setDamagedText(txDamaged.getText());
-		planet.setPerfectText(txPerfect.getText());
-		planet.setRetroText(txRetro.getText());
+//		planet.setSwordText(txSword.getText());
+//		planet.setShieldText(txShield.getText());
+//		planet.setBeltText(txBelt.getText());
+//		planet.setKernelText(txKernel.getText());
+//		planet.setMineText(txMine.getText());
+//		planet.setStrongText(txStrong.getText());
+//		planet.setWeakText(txWeak.getText());
+//		planet.setDamagedText(txDamaged.getText());
+//		planet.setPerfectText(txPerfect.getText());
+//		planet.setRetroText(txRetro.getText());
 		planet.setNumber(spNumber.getSelection());
 		planet.setFictitious(btFictitious.getSelection());
 	}

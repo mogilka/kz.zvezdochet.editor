@@ -124,32 +124,32 @@ public class GenderTextComposite extends EditorComposite {
 			txText.setText(dict.getText());
 			secText.setExpanded(txText.getText().length() > 0);
 		}
-		TextGender gtext = dict.getGenderTexts();
-		if (gtext != null) {
-			if (gtext.getText() != null) {
-				txMale.setText(gtext.getText());
-				secMale.setExpanded(txMale.getText().length() > 0);
-			}
-			if (gtext.getType() != null) {
-				txFemale.setText(gtext.getType());
-				secFemale.setExpanded(txFemale.getText().length() > 0);
-			}
-			if (gtext.getObjectId() != null) {
-				txChild.setText(gtext.getObjectId());
-				secChild.setExpanded(txChild.getText().length() > 0);
-			}
-		}
+//		TextGender gtext = dict.getGenderTexts();
+//		if (gtext != null) {
+//			if (gtext.getText() != null) {
+//				txMale.setText(gtext.getText());
+//				secMale.setExpanded(txMale.getText().length() > 0);
+//			}
+//			if (gtext.getType() != null) {
+//				txFemale.setText(gtext.getType());
+//				secFemale.setExpanded(txFemale.getText().length() > 0);
+//			}
+//			if (gtext.getObjectId() != null) {
+//				txChild.setText(gtext.getObjectId());
+//				secChild.setExpanded(txChild.getText().length() > 0);
+//			}
+//		}
 	}
 
 	@Override
 	public void syncModel(int mode) throws Exception {
 		if (!check(mode)) return;
 		ITextGender dict = (ITextGender)model;
-		if (null == dict.getGenderTexts())
-			dict.setGenderText(new TextGender());
-		dict.getGenderTexts().setText(txMale.getText());
-		dict.getGenderTexts().setType(txFemale.getText());
-		dict.getGenderTexts().setObjectId(txChild.getText());
+//		if (null == dict.getGenderTexts())
+//			dict.setGenderText(new TextGender());
+//		dict.getGenderTexts().setText(txMale.getText());
+//		dict.getGenderTexts().setType(txFemale.getText());
+//		dict.getGenderTexts().setObjectId(txChild.getText());
 		dict.setText(txText.getText());
 	}
 

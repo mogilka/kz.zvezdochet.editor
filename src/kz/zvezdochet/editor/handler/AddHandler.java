@@ -16,9 +16,9 @@ public class AddHandler extends EditHandler {
 	@Execute
 	public void execute(@Active MPart activePart) {
 		listpart = (EditorListPart)activePart.getObject();
-		Model model = (Model)listpart.addModel();
-		if (null == model) return;
-		MPart part = partService.findPart(getViewId());
-		checkPart(part, model);
+//		Model model = (Model)listpart.addModel();
+//		if (null == model) return;
+//		MPart part = partService.findPart(getViewId());
+//		checkPart(part, model);
 	}
 }

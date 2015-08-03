@@ -74,7 +74,7 @@ public class SignComposite extends EditorComposite {
 		if (model != null) {
 			Sign sign = (Sign)model;
 			txInitialPoint.setText(CalcUtil.formatNumber("###.##", sign.getI0()));
-			txFinalPoint.setText(CalcUtil.formatNumber("###.##", sign.getCoord()));
+//			txFinalPoint.setText(CalcUtil.formatNumber("###.##", sign.getCoord()));
 			spNumber.setSelection(sign.getNumber());
 		} 
 	}
@@ -91,7 +91,7 @@ public class SignComposite extends EditorComposite {
 		if (null == model) return;
 		Sign sign = (Sign)model;
 		sign.setI0(Double.parseDouble(txInitialPoint.getText()));
-		sign.setCoord(Double.parseDouble(txFinalPoint.getText()));
+//		sign.setCoord(Double.parseDouble(txFinalPoint.getText()));
 		sign.setNumber(spNumber.getSelection());
 	}
 

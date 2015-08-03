@@ -107,7 +107,7 @@ public class AspectTypeComposite extends EditorComposite {
 
 		cvProtraction.setContentProvider(new ArrayContentProvider());
 		cvProtraction.setLabelProvider(new DictionaryLabelProvider());
-		cvProtraction.setInput(new ProtractionService().getList());
+//		cvProtraction.setInput(new ProtractionService().getList());
 	}
 	
 	@Override
@@ -137,10 +137,10 @@ public class AspectTypeComposite extends EditorComposite {
 				cvType.getCombo().setText(dict.getParentType().getName());
 			else
 				cvType.setSelection(null);
-			if (dict.getProtraction() != null)
-				cvProtraction.getCombo().setText(dict.getProtraction().getName());
-			else
-				cvProtraction.setSelection(null);
+//			if (dict.getProtraction() != null)
+//				cvProtraction.getCombo().setText(dict.getProtraction().getName());
+//			else
+//				cvProtraction.setSelection(null);
 		    lbColorView.setBackground(dict.getColor());
 		    lbDimColorView.setBackground(dict.getDimColor());
 		    txSymbol.setText(String.valueOf(dict.getSymbol()));
@@ -161,8 +161,8 @@ public class AspectTypeComposite extends EditorComposite {
 		if (null == model) return;
 		AspectType dict = (AspectType)model;
 		IStructuredSelection selection = (IStructuredSelection)cvProtraction.getSelection();
-		if (selection.getFirstElement() != null) 
-			dict.setProtraction((Protraction)selection.getFirstElement());
+//		if (selection.getFirstElement() != null) 
+//			dict.setProtraction((Protraction)selection.getFirstElement());
 		selection = (IStructuredSelection)cvType.getSelection();
 		if (selection.getFirstElement() != null) 
 			dict.setParentType((AspectType)selection.getFirstElement());

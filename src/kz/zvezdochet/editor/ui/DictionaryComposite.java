@@ -104,9 +104,9 @@ public class DictionaryComposite extends EditorComposite {
 	protected void syncView() {		
 		reset();
 		if (null == model) return;
-		txtName.setText(StringUtil.safeString(((Dictionary)model).getName()));
-		txtCode.setText(StringUtil.safeString(((Dictionary)model).getCode()));
-		txtDescription.setText(StringUtil.safeString(((Dictionary)model).getDescription()));
+//		txtName.setText(StringUtil.safeString(((Dictionary)model).getName()));
+//		txtCode.setText(StringUtil.safeString(((Dictionary)model).getCode()));
+//		txtDescription.setText(StringUtil.safeString(((Dictionary)model).getDescription()));
 	}
 
 	@Override
