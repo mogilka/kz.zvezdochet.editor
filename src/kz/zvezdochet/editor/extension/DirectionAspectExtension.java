@@ -1,7 +1,7 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.service.DirectionAspectService;
 import kz.zvezdochet.core.service.IModelService;
+import kz.zvezdochet.direction.service.DirectionAspectService;
 
 /**
  * Расширение справочника Дирекции планет

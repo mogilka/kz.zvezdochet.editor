@@ -1,4 +1,3 @@
- 
 package kz.zvezdochet.editor.handler;
 
 import javax.inject.Named;

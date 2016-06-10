@@ -41,3 +41,4 @@ Require-Bundle: org.eclipse.ui,
  javax.inject
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+Import-Package: kz.zvezdochet.direction.service
