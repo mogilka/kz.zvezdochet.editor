@@ -1,6 +1,5 @@
 package kz.zvezdochet.editor.handler;
 
-import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.editor.part.EditorListPart;
 
 import org.eclipse.e4.core.contexts.Active;

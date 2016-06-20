@@ -68,9 +68,6 @@
             class="kz.zvezdochet.editor.extension.PositionTypeExtension">
       </editorListElement>
       <editorListElement
-            class="kz.zvezdochet.editor.extension.ProtractionExtension">
-      </editorListElement>
-      <editorListElement
             class="kz.zvezdochet.editor.extension.SignExtension">
       </editorListElement>
       <editorListElement
@@ -150,9 +147,6 @@
       </editorPageElement>
       <editorPageElement
             class="kz.zvezdochet.editor.extension.PositionTypeExtension">
-      </editorPageElement>
-      <editorPageElement
-            class="kz.zvezdochet.editor.extension.ProtractionExtension">
       </editorPageElement>
       <editorPageElement
             class="kz.zvezdochet.editor.extension.SignExtension">

@@ -111,4 +111,11 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 	public boolean check(int mode) throws Exception {
 		return false;
 	}
+
+	@Override
+	public Model createModel() {
+		if (null != extension)
+			return extension.create();
+		return null;
+	}
 }

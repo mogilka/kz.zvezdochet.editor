@@ -1,7 +1,6 @@
 package kz.zvezdochet.editor.ui;
 
 import kz.zvezdochet.core.bean.ITextGender;
-import kz.zvezdochet.core.bean.TextGender;
 import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
 import kz.zvezdochet.core.ui.view.View;

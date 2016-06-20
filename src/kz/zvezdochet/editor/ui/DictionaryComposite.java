@@ -6,7 +6,6 @@ import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
 import kz.zvezdochet.core.ui.view.Messages;
 import kz.zvezdochet.core.ui.view.View;
-import kz.zvezdochet.core.util.StringUtil;
 
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;

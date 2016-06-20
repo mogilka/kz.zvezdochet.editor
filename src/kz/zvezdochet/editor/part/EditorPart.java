@@ -141,15 +141,6 @@ public class EditorPart extends ModelPart implements IExtendableView {
 		super.close();
 	}
 
-	@Override
-	public Model addModel() {
-		if (extensions != null)
-			for (ModelExtension extension : extensions)
-				if (extension instanceof EditorExtension)
-					return extension.create();
-		return null;
-	}
-
 	protected void refreshView() {
 		scrolledComposite.setMinSize(container.computeSize(SWT.MIN, SWT.DEFAULT));
 		container.layout(true, true);
