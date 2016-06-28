@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_1YlQkAnuEeS65tNDXP9q7A">
+  <imports xsi:type="commands:Command" xmi:id="_1Jd10DyNEea_lYoYKqetow" elementId="kz.zvezdochet.command.import"/>
+  <imports xsi:type="commands:Command" xmi:id="_NEcg4DyREea_lYoYKqetow" elementId="kz.zvezdochet.command.importcheck"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_xLBOgAnvEeS65tNDXP9q7A" featurename="commands" parentElementId="org.eclipse.e4.ide.application">
     <elements xsi:type="commands:Command" xmi:id="_rLIKYAp4EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.command.add" commandName="addCommand"/>
     <elements xsi:type="commands:Command" xmi:id="_yr7CUAp4EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.command.edit" commandName="editCommand"/>
@@ -11,6 +13,8 @@
     </elements>
     <elements xsi:type="commands:Command" xmi:id="_mKHQUAq0EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.command.save" commandName="saveCommand"/>
     <elements xsi:type="commands:Command" xmi:id="_ZSoLEDanEeSPFMPGY8yVBA" elementId="kz.zvezdochet.editor.command.browser" commandName="browserCommand"/>
+    <elements xsi:type="commands:Command" xmi:id="_OccIMDyJEea_lYoYKqetow" elementId="kz.zvezdochet.editor.command.main" commandName="mainCommand"/>
+    <elements xsi:type="commands:Command" xmi:id="_FHW_cDyaEea_lYoYKqetow" elementId="kz.zvezdochet.editor.command.importplace" commandName="importPlaceCommand"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_UXlp8AnwEeS65tNDXP9q7A" featurename="handlers" parentElementId="org.eclipse.e4.ide.application">
     <elements xsi:type="commands:Handler" xmi:id="_tqHmQAqBEeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handler.add" contributionURI="bundleclass://kz.zvezdochet.editor/kz.zvezdochet.editor.handler.AddHandler" command="_rLIKYAp4EeSCVMUYVe4vfg"/>
@@ -21,13 +25,19 @@
     <elements xsi:type="commands:Handler" xmi:id="_4WzAAAqwEeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handler.dict" contributionURI="bundleclass://kz.zvezdochet.editor/kz.zvezdochet.editor.handler.DictHandler" command="_zJAsgAqwEeSCVMUYVe4vfg"/>
     <elements xsi:type="commands:Handler" xmi:id="_0sq60Aq0EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handler.save" contributionURI="bundleclass://kz.zvezdochet.editor/kz.zvezdochet.editor.handler.SaveHandler" command="_mKHQUAq0EeSCVMUYVe4vfg"/>
     <elements xsi:type="commands:Handler" xmi:id="_d4MoADanEeSPFMPGY8yVBA" elementId="kz.zvezdochet.editor.handler.browser" contributionURI="bundleclass://kz.zvezdochet.editor/kz.zvezdochet.editor.handler.BrowserHandler" command="_ZSoLEDanEeSPFMPGY8yVBA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_RpR3oDyJEea_lYoYKqetow" elementId="kz.zvezdochet.editor.handler.main" contributionURI="bundleclass://kz.zvezdochet.editor/kz.zvezdochet.editor.handler.MainHandler" command="_OccIMDyJEea_lYoYKqetow"/>
+    <elements xsi:type="commands:Handler" xmi:id="_KaLj8DyaEea_lYoYKqetow" elementId="kz.zvezdochet.editor.handler.importplace" contributionURI="bundleclass://kz.zvezdochet.editor/kz.zvezdochet.editor.handler.ImportPlaceHandler" command="_FHW_cDyaEea_lYoYKqetow"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_svTUUAnzEeS65tNDXP9q7A" featurename="children" parentElementId="org.eclipse.ui.main.menu">
     <elements xsi:type="menu:Menu" xmi:id="_1aC24AnzEeS65tNDXP9q7A" elementId="kz.zvezdochet.editor.menu.dict" label="&#x421;&#x43f;&#x440;&#x430;&#x432;&#x43e;&#x447;&#x43d;&#x438;&#x43a;&#x438;">
-      <children xsi:type="menu:HandledMenuItem" xmi:id="_HzodUAn0EeS65tNDXP9q7A" elementId="kz.zvezdochet.editor.handledmenuitem.place" label="&#x41c;&#x435;&#x441;&#x442;&#x43e;&#x43d;&#x430;&#x445;&#x43e;&#x436;&#x434;&#x435;&#x43d;&#x438;&#x435;" iconURI="platform:/plugin/kz.zvezdochet.editor/icons/library.gif" tooltip="&#x41c;&#x435;&#x441;&#x442;&#x43e;&#x43d;&#x430;&#x445;&#x43e;&#x436;&#x434;&#x435;&#x43d;&#x438;&#x435;" command="_zJAsgAqwEeSCVMUYVe4vfg">
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_RfuIcDyIEea_lYoYKqetow" elementId="kz.zvezdochet.editor.handledmenuitem.main" label="&#x421;&#x43f;&#x440;&#x430;&#x432;&#x43e;&#x447;&#x43d;&#x438;&#x43a;&#x438;" iconURI="platform:/plugin/kz.zvezdochet.editor/icons/library.gif" tooltip="&#x421;&#x43f;&#x440;&#x430;&#x432;&#x43e;&#x447;&#x43d;&#x438;&#x43a;&#x438;" command="_OccIMDyJEea_lYoYKqetow"/>
+      <children xsi:type="menu:MenuSeparator" xmi:id="_Mnn-0CrEEeSHve1FmYP-wA" elementId="kz.zvezdochet.editor.menuseparator.0"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_HzodUAn0EeS65tNDXP9q7A" elementId="kz.zvezdochet.editor.handledmenuitem.place" label="&#x41c;&#x435;&#x441;&#x442;&#x43e;&#x43d;&#x430;&#x445;&#x43e;&#x436;&#x434;&#x435;&#x43d;&#x438;&#x435;" iconURI="platform:/plugin/kz.zvezdochet/icons/globe.png" tooltip="&#x41c;&#x435;&#x441;&#x442;&#x43e;&#x43d;&#x430;&#x445;&#x43e;&#x436;&#x434;&#x435;&#x43d;&#x438;&#x435;" command="_zJAsgAqwEeSCVMUYVe4vfg">
         <parameters xmi:id="_-zXYcCfIEeSJ3vCiyqF2rQ" elementId="kz.zvezdochet.editor.parameter.place" name="kz.zvezdochet.editor.commandparameter.dict" value="places"/>
       </children>
-      <children xsi:type="menu:MenuSeparator" xmi:id="_Mnn-0CrEEeSHve1FmYP-wA" elementId="kz.zvezdochet.editor.menuseparator.0"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_fPCJYDyOEea_lYoYKqetow" elementId="kz.zvezdochet.editor.handledmenuitem." label="&#x418;&#x43c;&#x43f;&#x43e;&#x440;&#x442; &#x433;&#x43e;&#x440;&#x43e;&#x434;&#x43e;&#x432;" iconURI="platform:/plugin/kz.zvezdochet.core/icons/import.gif" tooltip="&#x418;&#x43c;&#x43f;&#x43e;&#x440;&#x442; &#x433;&#x43e;&#x440;&#x43e;&#x434;&#x43e;&#x432;" command="_1Jd10DyNEea_lYoYKqetow">
+        <parameters xmi:id="_rExoUDyOEea_lYoYKqetow" elementId="kz.zvezdochet.editor.parameter.importplace" name="kz.zvezdochet.commandparameter.import" value="kz.zvezdochet.editor.part.importplace"/>
+      </children>
       <children xsi:type="menu:HandledMenuItem" xmi:id="_f1KI8CfKEeSJ3vCiyqF2rQ" elementId="kz.zvezdochet.editor.handledmenuitem.element" label="&#x421;&#x442;&#x438;&#x445;&#x438;&#x438;" iconURI="platform:/plugin/kz.zvezdochet.analytics/icons/lightning.png" tooltip="&#x421;&#x442;&#x438;&#x445;&#x438;&#x438;" command="_zJAsgAqwEeSCVMUYVe4vfg">
         <parameters xmi:id="_B-zu0CfLEeSJ3vCiyqF2rQ" elementId="kz.zvezdochet.editor.parameter.element" name="kz.zvezdochet.editor.commandparameter.dict" value="elements"/>
       </children>
@@ -65,6 +75,15 @@
               <children xsi:type="menu:HandledToolItem" xmi:id="_lmavMAp5EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handledtoolitem.delete" label="&#x423;&#x434;&#x430;&#x43b;&#x438;&#x442;&#x44c;" iconURI="platform:/plugin/kz.zvezdochet.core/icons/trash.png" tooltip="&#x423;&#x434;&#x430;&#x43b;&#x438;&#x442;&#x44c;" command="_3LoH0Ap4EeSCVMUYVe4vfg"/>
               <children xsi:type="menu:HandledToolItem" xmi:id="_20eWoAp5EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handledtoolitem.refresh" label="&#x41e;&#x431;&#x43d;&#x43e;&#x432;&#x438;&#x442;&#x44c;" iconURI="platform:/plugin/kz.zvezdochet.core/icons/refresh.gif" tooltip="&#x41e;&#x431;&#x43d;&#x43e;&#x432;&#x438;&#x442;&#x44c;" command="_7nIp0Ap4EeSCVMUYVe4vfg"/>
               <children xsi:type="menu:HandledToolItem" xmi:id="_8vC3oAp5EeSCVMUYVe4vfg" elementId="kz.zvezdochet.editor.handledtoolitem.filter" label="&#x424;&#x438;&#x43b;&#x44c;&#x442;&#x440;" iconURI="platform:/plugin/kz.zvezdochet.core/icons/filterElements.gif" tooltip="&#x424;&#x438;&#x43b;&#x44c;&#x442;&#x440;" command="_-D180Ap4EeSCVMUYVe4vfg"/>
+            </toolbar>
+          </children>
+          <children xsi:type="basic:Part" xmi:id="_x0wHUDyOEea_lYoYKqetow" elementId="kz.zvezdochet.editor.part.importplace" visible="false" contributionURI="bundleclass://kz.zvezdochet.editor/kz.zvezdochet.editor.part.ImportPlacePart" label="&#x418;&#x43c;&#x43f;&#x43e;&#x440;&#x442; &#x433;&#x43e;&#x440;&#x43e;&#x434;&#x43e;&#x432;" iconURI="platform:/plugin/kz.zvezdochet.core/icons/import.gif" tooltip="&#x418;&#x43c;&#x43f;&#x43e;&#x440;&#x442; &#x433;&#x43e;&#x440;&#x43e;&#x434;&#x43e;&#x432;" closeable="true">
+            <toolbar xmi:id="_6E8b4DyOEea_lYoYKqetow" elementId="kz.zvezdochet.editor.toolbar.1">
+              <children xsi:type="menu:HandledToolItem" xmi:id="_AGA7kDyREea_lYoYKqetow" elementId="kz.zvezdochet.editor.handledtoolitem.importcheckplace" label="&#x41d;&#x430;&#x439;&#x442;&#x438;" iconURI="platform:/plugin/kz.zvezdochet.core/icons/search.gif" tooltip="&#x41d;&#x430;&#x439;&#x442;&#x438;" command="_NEcg4DyREea_lYoYKqetow">
+                <parameters xmi:id="_SLhIYDyREea_lYoYKqetow" elementId="kz.zvezdochet.editor.parameter.importcheckplace" name="kz.zvezdochet.commandparameter.importcheck" value="kz.zvezdochet.editor.part.importplace"/>
+                <parameters xmi:id="_EfSXADyTEea_lYoYKqetow" elementId="kz.zvezdochet.editor.parameter.importurlplace" name="kz.zvezdochet.commandparameter.importurl" value="https://zvezdochet.guru/place/export?datetime=%d"/>
+              </children>
+              <children xsi:type="menu:HandledToolItem" xmi:id="_8ZPYwDyZEea_lYoYKqetow" elementId="kz.zvezdochet.editor.handledtoolitem.importrunplace" label="&#x418;&#x43c;&#x43f;&#x43e;&#x440;&#x442;" iconURI="platform:/plugin/kz.zvezdochet.core/icons/import.gif" tooltip="&#x418;&#x43c;&#x43f;&#x43e;&#x440;&#x442;" command="_FHW_cDyaEea_lYoYKqetow"/>
             </toolbar>
           </children>
         </children>

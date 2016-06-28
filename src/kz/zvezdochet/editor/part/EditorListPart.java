@@ -58,13 +58,13 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 		}
 		addColumns();
 		tableViewer.setLabelProvider(getLabelProvider());
-		try {
-			if (extension != null)
-				setData(extension.getModelList());
-		} catch (DataAccessException e) {
-			e.printStackTrace();
-		}
-		table.update();
+//		try {
+//			if (extension != null)
+//				setData(extension.getModelList());
+//		} catch (DataAccessException e) {
+//			e.printStackTrace();
+//		}
+//		table.update();
 		if (extension != null) {
 			part.setLabel(extension.getName());
 			part.setIconURI(extension.getIconURI());
