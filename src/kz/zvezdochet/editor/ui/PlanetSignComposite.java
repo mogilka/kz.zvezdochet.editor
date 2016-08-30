@@ -21,6 +21,7 @@ import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 
@@ -47,7 +48,8 @@ public class PlanetSignComposite extends EditorComposite {
 	public View create(Composite parent) {
 		group = new Group(parent, SWT.NONE);
 		group.setText("");
-		
+//		group.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_DARK_YELLOW));
+
 		lbType = new Label(group, SWT.NONE);
 		lbType.setText("Тип");
 		cvType = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);

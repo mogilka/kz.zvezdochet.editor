@@ -4,7 +4,7 @@ import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.ui.extension.ModelExtension;
 
 /**
- * Прототип провайдера расширения справочника
+ * Прототип расширения справочника
  * @author Nataly Didenko
  */
 public abstract class EditorExtension extends ModelExtension {
@@ -49,8 +49,8 @@ public abstract class EditorExtension extends ModelExtension {
 		return null;
 	}
 
-	@Override
-	public void initView() {
+//	@Override
+//	public void initView() {
 //		String viewid = getExtensionViewId();
 //		if (viewid != null) {
 //			try {
@@ -66,13 +66,8 @@ public abstract class EditorExtension extends ModelExtension {
 //			view.setModel((Model)extension, true);
 //			addShowingView(view);	
 //		}
-	}
+//	}
 	
-	@Override
-	public String getExtensionViewId() {
-		return "kz.zvezdochet.editor.part.item";
-	}
-
 //	@Override
 //	public void deleteModel(View view, ISaveListener listener) {
 //		EditorListPart listview = (EditorListPart)view;

@@ -18,6 +18,7 @@ import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 
 /**
  * Редактор справочника, отображающий композиты расширений
@@ -28,7 +29,7 @@ public class EditorPart extends ModelPart implements IExtendableView {
 	 * Контейнер композитов
 	 */
 	private Composite container;
-	private ScrolledComposite scrolledComposite;
+	private ScrolledComposite scrollContainer;
 	/**
 	 * Расширения справочника
 	 */
@@ -36,14 +37,17 @@ public class EditorPart extends ModelPart implements IExtendableView {
 
 	@PostConstruct @Override
 	public View create(Composite parent) {
+		parent.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
 		extPointId = Activator.PLUGIN_ID + ".editorPage";
-		scrolledComposite = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.BORDER);
-		scrolledComposite.setExpandVertical(true);
-		scrolledComposite.setExpandHorizontal(true);
-		scrolledComposite.setMinSize(parent.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-		GridDataFactory.fillDefaults().grab(true, true).applyTo(scrolledComposite);
-		container = new Composite(scrolledComposite, SWT.NONE);
-		scrolledComposite.setContent(container);
+		scrollContainer = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.BORDER);
+		scrollContainer.setExpandVertical(true);
+		scrollContainer.setExpandHorizontal(true);
+//		scrollContainer.setMinSize(parent.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+		scrollContainer.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_GRAY));
+		GridDataFactory.fillDefaults().grab(true, true).applyTo(scrollContainer);
+		container = new Composite(scrollContainer, SWT.NONE);
+		scrollContainer.setContent(container);
+		container.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_DARK_YELLOW));
 
 		super.create(parent);
 
@@ -115,19 +119,20 @@ public class EditorPart extends ModelPart implements IExtendableView {
 		extensions = new ArrayList<ModelExtension>();
 		List<ModelExtension> allext = getExtensions();
 		if (null == allext) return;
+		String dict = model.getService().getTableName();
 		for (ModelExtension extension : allext) {
 			if (extension instanceof EditorExtension) {
-				if (extension.canHandle(dictionary))
+				if (extension.canHandle(dict))
 					extensions.add(extension);
 			} else if (extension.canHandle(model))
 				extensions.add(extension);
 		}
 		for (ModelExtension extension : extensions) {
 			extension.setModel(model);
-			extension.initExtensionView(this);
+			extension.setPart(this);
 //			extension.initStateListener(stateListener);
 			extension.initComposites(container);
-			extension.initView();
+//			extension.initView();
 		}
 		refreshView();
 		decorate();
@@ -142,20 +147,7 @@ public class EditorPart extends ModelPart implements IExtendableView {
 	}
 
 	protected void refreshView() {
-		scrolledComposite.setMinSize(container.computeSize(SWT.MIN, SWT.DEFAULT));
+		scrollContainer.setMinSize(container.computeSize(SWT.MIN, SWT.DEFAULT));
 		container.layout(true, true);
-	}
-
-	/**
-	 * Код загружаемого справочника
-	 */
-	private String dictionary;
-
-	/**
-	 * Инициализация кода справочника и расширений
-	 * @param code имя таблицы БД
-	 */
-	public void setDictionary(String code) {
-		this.dictionary = code;
 	}
 }

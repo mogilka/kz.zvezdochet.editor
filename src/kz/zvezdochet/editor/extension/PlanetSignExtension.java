@@ -32,12 +32,12 @@ public class PlanetSignExtension extends EditorExtension {
 		return new ModelLabelProvider() {
 			@Override
 			public String getColumnText(Object element, int columnIndex) {
-				PlanetSignText model = (PlanetSignText)element;
-				switch (columnIndex) {
-					case 0: return model.getPlanet().getName();
-					case 1: return model.getSign().getName();
-					case 2: return model.getCategory().getName();
-				}
+//				PlanetSignText model = (PlanetSignText)element;
+//				switch (columnIndex) {
+//					case 0: return model.getPlanet().getName();
+//					case 1: return model.getSign().getName();
+//					case 2: return model.getCategory().getName();
+//				}
 				return null;
 			}
 		};

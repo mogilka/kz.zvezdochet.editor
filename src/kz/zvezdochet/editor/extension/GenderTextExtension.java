@@ -27,18 +27,6 @@ public class GenderTextExtension extends ModelExtension {
 	}
 
 	@Override
-	public String getExtensionViewId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void initView() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public IModelService getService() {
 		// TODO Auto-generated method stub
 		return null;

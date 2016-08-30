@@ -44,7 +44,7 @@
             class="kz.zvezdochet.editor.extension.DegreeExtension">
       </editorListElement>
       <editorListElement
-            class="kz.zvezdochet.editor.extension.DirectionHouseExtension">
+            class="kz.zvezdochet.editor.extension.DirectionExtension">
       </editorListElement>
       <editorListElement
             class="kz.zvezdochet.editor.extension.HalfsphereExtension">
@@ -125,7 +125,7 @@
             class="kz.zvezdochet.editor.extension.DegreeExtension">
       </editorPageElement>
       <editorPageElement
-            class="kz.zvezdochet.editor.extension.DirectionHouseExtension">
+            class="kz.zvezdochet.editor.extension.DirectionExtension">
       </editorPageElement>
       <editorPageElement
             class="kz.zvezdochet.editor.extension.HalfsphereExtension">

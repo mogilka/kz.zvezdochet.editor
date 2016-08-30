@@ -2,6 +2,9 @@ package kz.zvezdochet.editor.part;
 
 import javax.annotation.PostConstruct;
 
+import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.DataAccessException;
 import kz.zvezdochet.core.ui.extension.ModelExtension;
@@ -9,9 +12,6 @@ import kz.zvezdochet.core.ui.listener.ISaveListener;
 import kz.zvezdochet.core.ui.view.ModelListView;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.Activator;
-
-import org.eclipse.jface.viewers.IBaseLabelProvider;
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Представление списка справочника
@@ -58,13 +58,13 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 		}
 		addColumns();
 		tableViewer.setLabelProvider(getLabelProvider());
-//		try {
-//			if (extension != null)
-//				setData(extension.getModelList());
-//		} catch (DataAccessException e) {
-//			e.printStackTrace();
-//		}
-//		table.update();
+		try {
+			if (extension != null)
+				setData(extension.getModelList());
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		}
+		table.update();
 		if (extension != null) {
 			part.setLabel(extension.getName());
 			part.setIconURI(extension.getIconURI());
@@ -88,7 +88,7 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 	}
 
 	@Override
-	public void onSave(Model model) {
+	public void onSave(Model model, boolean update) {
 		// TODO Auto-generated method stub
 		
 	}

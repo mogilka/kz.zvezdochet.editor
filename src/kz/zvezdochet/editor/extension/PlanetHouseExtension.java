@@ -9,7 +9,10 @@ import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.PlanetHouseComposite;
 
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 
 /**
  * Расширение справочника Планеты в астрологических домах
@@ -39,6 +42,14 @@ public class PlanetHouseExtension extends EditorExtension {
 					case 2: return model.getAspectType().getName();
 				}
 				return null;
+			}
+			@Override
+			public Color getForeground(Object element, int columnIndex) {
+				if (2 == columnIndex) {
+					PlanetHouseText model = (PlanetHouseText)element;
+					return model.getAspectType().getColor();
+				}
+				return Display.getDefault().getSystemColor(SWT.COLOR_BLACK);
 			}
 		};
 	}
