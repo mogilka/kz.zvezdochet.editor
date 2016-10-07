@@ -5,6 +5,13 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.jface.layout.GridLayoutFactory;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.core.bean.Dictionary;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.ui.extension.IExtendableView;
@@ -13,12 +20,6 @@ import kz.zvezdochet.core.ui.view.ModelPart;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.Activator;
 import kz.zvezdochet.editor.extension.EditorExtension;
-
-import org.eclipse.jface.layout.GridDataFactory;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.ScrolledComposite;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 
 /**
  * Редактор справочника, отображающий композиты расширений
@@ -37,17 +38,12 @@ public class EditorPart extends ModelPart implements IExtendableView {
 
 	@PostConstruct @Override
 	public View create(Composite parent) {
-		parent.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
 		extPointId = Activator.PLUGIN_ID + ".editorPage";
 		scrollContainer = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.BORDER);
 		scrollContainer.setExpandVertical(true);
 		scrollContainer.setExpandHorizontal(true);
-//		scrollContainer.setMinSize(parent.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-		scrollContainer.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_GRAY));
-		GridDataFactory.fillDefaults().grab(true, true).applyTo(scrollContainer);
 		container = new Composite(scrollContainer, SWT.NONE);
 		scrollContainer.setContent(container);
-		container.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_DARK_YELLOW));
 
 		super.create(parent);
 
@@ -55,7 +51,19 @@ public class EditorPart extends ModelPart implements IExtendableView {
 //		notifyChange();
 		return null;
 	}
-	
+
+	@Override
+	protected void init(Composite composite) {
+		GridLayoutFactory.swtDefaults().applyTo(composite);
+		GridDataFactory.fillDefaults().grab(true, true).applyTo(composite);
+
+		scrollContainer.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+		GridDataFactory.fillDefaults().grab(true, false).applyTo(scrollContainer);
+
+		GridLayoutFactory.swtDefaults().applyTo(container);
+		GridDataFactory.fillDefaults().grab(false, false).applyTo(container);
+	}
+
 // 	@Override
 //	protected void setListeners() {
 //		stateChangedListener = new StateChangedListener();
@@ -133,8 +141,9 @@ public class EditorPart extends ModelPart implements IExtendableView {
 //			extension.initStateListener(stateListener);
 			extension.initComposites(container);
 //			extension.initView();
+			
 		}
-		refreshView();
+		refreshPart();
 		decorate();
 	}
 
@@ -146,8 +155,8 @@ public class EditorPart extends ModelPart implements IExtendableView {
 		super.close();
 	}
 
-	protected void refreshView() {
-		scrollContainer.setMinSize(container.computeSize(SWT.MIN, SWT.DEFAULT));
-		container.layout(true, true);
+	protected void refreshPart() {
+//		scrollContainer.setMinSize(container.computeSize(SWT.MIN, SWT.DEFAULT));
+//		container.layout(true, true);
 	}
 }

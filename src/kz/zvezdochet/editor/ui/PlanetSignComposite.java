@@ -1,19 +1,5 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.analytics.bean.Category;
-import kz.zvezdochet.analytics.bean.PlanetSignText;
-import kz.zvezdochet.analytics.service.CategoryService;
-import kz.zvezdochet.bean.Planet;
-import kz.zvezdochet.bean.Sign;
-import kz.zvezdochet.core.service.DataAccessException;
-import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
-import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
-import kz.zvezdochet.core.ui.util.DialogUtil;
-import kz.zvezdochet.core.ui.util.GUIutil;
-import kz.zvezdochet.core.ui.view.View;
-import kz.zvezdochet.service.PlanetService;
-import kz.zvezdochet.service.SignService;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -21,9 +7,21 @@ import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+
+import kz.zvezdochet.analytics.bean.Category;
+import kz.zvezdochet.analytics.bean.PlanetSignText;
+import kz.zvezdochet.analytics.service.CategoryService;
+import kz.zvezdochet.bean.Planet;
+import kz.zvezdochet.bean.Sign;
+import kz.zvezdochet.core.service.DataAccessException;
+import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
+import kz.zvezdochet.core.ui.util.DialogUtil;
+import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.View;
+import kz.zvezdochet.service.PlanetService;
+import kz.zvezdochet.service.SignService;
 
 /**
  * Композит, используемый для следующих расширений справочников:<br>
@@ -48,22 +46,18 @@ public class PlanetSignComposite extends EditorComposite {
 	public View create(Composite parent) {
 		group = new Group(parent, SWT.NONE);
 		group.setText("");
-//		group.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_DARK_YELLOW));
 
 		lbType = new Label(group, SWT.NONE);
 		lbType.setText("Тип");
 		cvType = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		new RequiredDecoration(lbType, SWT.TOP | SWT.RIGHT);
 
 		lbObject1 = new Label(group, SWT.NONE);
 		lbObject1.setText("Объект1");
 		cvObject1 = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		new RequiredDecoration(lbObject1, SWT.TOP | SWT.RIGHT);
 		
 		lbObject2 = new Label(group, SWT.NONE);
 		lbObject2.setText("Объект2");
 		cvObject2 = new ComboViewer(group, SWT.BORDER | SWT.READ_ONLY);
-		new RequiredDecoration(lbObject2, SWT.TOP | SWT.RIGHT);
 
 		decorate();
 		init(group);
@@ -93,20 +87,20 @@ public class PlanetSignComposite extends EditorComposite {
 	
 	@Override
 	protected void init(Composite composite) {
-		GridDataFactory.fillDefaults().grab(true, true).align(SWT.FILL, SWT.FILL).applyTo(composite);
+		GridDataFactory.fillDefaults().grab(true, false).applyTo(composite);
 		GridLayoutFactory.swtDefaults().numColumns(2).applyTo(composite);
 		
-		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cvType.getCombo());
-		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cvObject1.getCombo());
-		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
-			grab(true, false).applyTo(cvObject2.getCombo());
-
-		StateChangedListener listener = new StateChangedListener();
-		cvType.addSelectionChangedListener(listener);
-		cvObject1.addSelectionChangedListener(listener);
-		cvObject2.addSelectionChangedListener(listener);
+//		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
+//			grab(true, false).applyTo(cvType.getCombo());
+//		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
+//			grab(true, false).applyTo(cvObject1.getCombo());
+//		GridDataFactory.fillDefaults().align(SWT.FILL, SWT.CENTER).
+//			grab(true, false).applyTo(cvObject2.getCombo());
+//
+//		StateChangedListener listener = new StateChangedListener();
+//		cvType.addSelectionChangedListener(listener);
+//		cvObject1.addSelectionChangedListener(listener);
+//		cvObject2.addSelectionChangedListener(listener);
 	}
 	
 	@Override

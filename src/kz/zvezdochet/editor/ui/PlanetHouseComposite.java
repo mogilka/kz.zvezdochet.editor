@@ -1,17 +1,17 @@
 package kz.zvezdochet.editor.ui;
 
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
+
 import kz.zvezdochet.analytics.bean.PlanetHouseText;
 import kz.zvezdochet.bean.AspectType;
 import kz.zvezdochet.bean.House;
 import kz.zvezdochet.bean.Planet;
 import kz.zvezdochet.core.service.DataAccessException;
 import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
-import kz.zvezdochet.service.AspectService;
+import kz.zvezdochet.service.AspectTypeService;
 import kz.zvezdochet.service.HouseService;
 import kz.zvezdochet.service.PlanetService;
-
-import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.IStructuredSelection;
 
 /**
  * Композит справочника "Планеты в астрологических домах"
@@ -30,7 +30,7 @@ public class PlanetHouseComposite extends PlanetSignComposite {
 	protected void initControls() throws DataAccessException {
 		cvType.setContentProvider(new ArrayContentProvider());
 		cvType.setLabelProvider(new DictionaryLabelProvider());
-		cvType.setInput(new AspectService().getList());
+		cvType.setInput(new AspectTypeService().getList());
 
 		cvObject1.setContentProvider(new ArrayContentProvider());
 		cvObject1.setLabelProvider(new DictionaryLabelProvider());
