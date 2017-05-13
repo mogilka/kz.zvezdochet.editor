@@ -98,14 +98,12 @@ public class HouseComposite extends EditorComposite {
 		reset();
 		if (model != null) {
 			House house = (House)model;
-			if (house.getShortName() != null)
-				txShort.setText(house.getShortName());
-			if (house.getCombination() != null)
-				txCombination.setText(house.getCombination());
+			if (house.getName() != null)
+				txShort.setText(house.getName());
 			if (house.getDesignation() != null)
 				txDesignation.setText(house.getDesignation());
-			if (house.getHeaderName() != null)
-				txHeader.setText(house.getHeaderName());
+			if (house.getName() != null)
+				txHeader.setText(house.getName());
 			if (house.getLinkName() != null)
 				txLink.setText(house.getLinkName());
 			spNumber.setSelection(house.getNumber());
@@ -126,10 +124,8 @@ public class HouseComposite extends EditorComposite {
 	public void syncModel(int mode) {
 		if (null == model) return;
 		House house = (House)model;
-		house.setShortName(txShort.getText());
-		house.setCombination(txCombination.getText());
+		house.setName(txShort.getText());
 		house.setDesignation(txDesignation.getText());
-		house.setHeaderName(txHeader.getText());
 		house.setLinkName(txLink.getText());
 		house.setNumber(spNumber.getSelection());
 	}
