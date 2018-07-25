@@ -3,7 +3,15 @@ package kz.zvezdochet.editor.part;
 import javax.annotation.PostConstruct;
 
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Text;
 
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.DataAccessException;
@@ -38,41 +46,36 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 	private ModelExtension extension;
 	
 	/**
-	 * Код загружаемого справочника
-	 */
-	private String dictionary;
-
-	/**
-	 * Инициализация кода справочника и расширений
+	 * Инициализация расширения
 	 * @param code имя таблицы БД
 	 */
-	public void setDictionary(String code) {
-		this.dictionary = code;
-		extensions = getExtensions();
+	public void initExtension(String code) {
+		initExtensions();
 		if (null == extensions) return;
 		for (ModelExtension extension : extensions) {
-			if (extension.canHandle(dictionary)) {
+			if (extension.canHandle(code)) {
 				this.extension = extension;
 				break;
 			}
 		}
 		addColumns();
 		tableViewer.setLabelProvider(getLabelProvider());
-		try {
-			if (extension != null)
-				setData(extension.getModelList());
-		} catch (DataAccessException e) {
-			e.printStackTrace();
-		}
-		table.update();
+//		try {
+//			if (extension != null)
+//				setData(extension.getModelList());
+//		} catch (DataAccessException e) {
+//			e.printStackTrace();
+//		}
+//		table.update();
 		if (extension != null) {
 			part.setLabel(extension.getName());
 			part.setIconURI(extension.getIconURI());
-		}
-	}
 
-	public String getDictionary() {
-		return dictionary;
+			extension.initFilter(this, grFilter);
+			grFilter.layout(true, true);
+			grFilter.setSize(grFilter.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+			container.layout(true, true);
+		}
 	}
 
 	public ModelExtension getExtension() {
@@ -117,5 +120,12 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 		if (null != extension)
 			return extension.create();
 		return null;
+	}
+
+	@Override
+	public void initFilter(Composite parent) {
+		grFilter = new Group(container, SWT.NONE);
+		grFilter.setText("Поиск");
+		grFilter.setLayout(new GridLayout());
 	}
 }

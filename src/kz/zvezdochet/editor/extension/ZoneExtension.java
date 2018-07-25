@@ -30,4 +30,9 @@ public class ZoneExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet.analytics/icons/selection.ico";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("zones");
+	}
 }

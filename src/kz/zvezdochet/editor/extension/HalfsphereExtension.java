@@ -30,4 +30,9 @@ public class HalfsphereExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet.analytics/icons/contrast.png";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("halfspheres");
+	}
 }

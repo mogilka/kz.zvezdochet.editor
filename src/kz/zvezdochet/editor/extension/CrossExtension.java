@@ -30,4 +30,9 @@ public class CrossExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet.analytics/icons/cross.png";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("crosses");
+	}
 }

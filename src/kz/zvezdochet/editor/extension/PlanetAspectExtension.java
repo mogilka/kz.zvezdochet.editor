@@ -62,4 +62,10 @@ public class PlanetAspectExtension extends EditorExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet.editor/icons/standards.gif";
 	}
+
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -41,3 +41,7 @@ public class BrowserHandler extends Handler {
 		}
 	}
 }
+/* TODO
+ * org.eclipse.swt.SWTError: No more handles because no underlying browser available.
+   SWT on GTK 2.x detected. It is reccomended to use SWT on GTK 3.x and Webkit2 API.
+ */

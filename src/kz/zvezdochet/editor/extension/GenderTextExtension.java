@@ -4,6 +4,7 @@ import kz.zvezdochet.core.bean.ITextGender;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
 import kz.zvezdochet.core.ui.extension.ModelExtension;
+import kz.zvezdochet.core.ui.view.ListView;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.GenderTextComposite;
 
@@ -54,5 +55,19 @@ public class GenderTextExtension extends ModelExtension {
 	public String getIconURI() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void initFilter(ListView listView, Composite parent) {}
+
+	@Override
+	public String getName() {
+		return "Гендерные параметры";
+	}
+
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+		
 	}
 }

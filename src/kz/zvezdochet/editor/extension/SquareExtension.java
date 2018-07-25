@@ -30,4 +30,9 @@ public class SquareExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet.analytics/icons/square.png";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("squares");
+	}
 }

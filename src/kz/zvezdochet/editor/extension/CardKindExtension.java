@@ -30,4 +30,9 @@ public class CardKindExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet.analytics/icons/necklace.png";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("cardkinds");
+	}
 }

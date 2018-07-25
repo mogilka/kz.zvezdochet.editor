@@ -39,4 +39,9 @@ public class AspectExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet/icons/aspect.gif";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("aspects");
+	}
 }

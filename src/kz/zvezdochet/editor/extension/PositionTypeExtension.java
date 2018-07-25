@@ -30,4 +30,9 @@ public class PositionTypeExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet.analytics/icons/position.png";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("positions");
+	}
 }

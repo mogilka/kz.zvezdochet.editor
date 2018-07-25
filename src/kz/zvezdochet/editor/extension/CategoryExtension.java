@@ -63,4 +63,10 @@ public class CategoryExtension extends EditorExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet.analytics/icons/samples16.png";
 	}
+
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -20,6 +20,6 @@ public class DictHandler extends Handler {
 	public void execute(EPartService partService, @Named("kz.zvezdochet.editor.commandparameter.dict") String dict) {
 		MPart part = partService.findPart("kz.zvezdochet.editor.part.items");
 		EditorListPart dictPart = (EditorListPart)part.getObject();
-	    dictPart.setDictionary(dict);
+	    dictPart.initExtension(dict);
 	}
 }

@@ -39,4 +39,9 @@ public class HouseExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet/icons/home.gif";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("houses");
+	}
 }

@@ -1,15 +1,16 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.core.bean.Dictionary;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
 import kz.zvezdochet.core.ui.extension.ModelExtension;
+import kz.zvezdochet.core.ui.view.ListView;
 import kz.zvezdochet.core.ui.view.ModelLabelProvider;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.DictionaryComposite;
-
-import org.eclipse.jface.viewers.IBaseLabelProvider;
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника
@@ -20,23 +21,6 @@ public class DictionaryExtension extends ModelExtension {
 	@Override
 	public View initComposite(Composite parent) {
 		return new DictionaryComposite().create(parent);
-	}
-
-	@Override
-	public boolean canHandle(Object object) {
-		return object instanceof Dictionary;
-	}
-
-	@Override
-	public IModelService getService() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Model create() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -59,8 +43,33 @@ public class DictionaryExtension extends ModelExtension {
 	}
 
 	@Override
-	public String getIconURI() {
-		// TODO Auto-generated method stub
+	public void initFilter(ListView listView, Composite parent) {}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object instanceof Dictionary;
+	}
+
+	@Override
+	public IModelService getService() {
 		return null;
 	}
+
+	@Override
+	public Model create() {
+		return null;
+	}
+
+	@Override
+	public String getIconURI() {
+		return null;
+	}
+
+	@Override
+	public String getName() {
+		return "Общие параметры";
+	}
+
+	@Override
+	public void save() {}
 }

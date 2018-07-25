@@ -63,4 +63,10 @@ public class PlaceExtension extends EditorExtension {
 	public Model create() {
 		return new Place();
 	}
+
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+		
+	}
 }

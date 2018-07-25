@@ -30,15 +30,11 @@ public class EditorPart extends ModelPart implements IExtendableView {
 	 */
 	private Composite container;
 	private ScrolledComposite scrollContainer;
-	/**
-	 * Расширения справочника
-	 */
-	private List<ModelExtension> extensions;
 
 	@PostConstruct @Override
 	public View create(Composite parent) {
 		extPointId = Activator.PLUGIN_ID + ".editorPage";
-		scrollContainer = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.BORDER);
+		scrollContainer = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.NONE);
 		scrollContainer.setExpandVertical(true);
 		scrollContainer.setExpandHorizontal(true);
 		container = new Composite(scrollContainer, SWT.NONE);
@@ -123,24 +119,24 @@ public class EditorPart extends ModelPart implements IExtendableView {
 
 	@Override
 	public void initExtensions() {
-		extensions = new ArrayList<ModelExtension>();
-		List<ModelExtension> allext = getExtensions();
-		if (null == allext) return;
+		super.initExtensions();
+		if (null == extensions) return;
+
+		List<ModelExtension> exts = new ArrayList<ModelExtension>();
 		String dict = model.getService().getTableName();
-		for (ModelExtension extension : allext) {
+		for (ModelExtension extension : extensions) {
 			if (extension instanceof EditorExtension) {
 				if (extension.canHandle(dict))
-					extensions.add(extension);
+					exts.add(extension);
 			} else if (extension.canHandle(model))
-				extensions.add(extension);
+				exts.add(extension);
 		}
+		extensions = exts;
 		for (ModelExtension extension : extensions) {
 			extension.setModel(model);
 			extension.setPart(this);
 //			extension.initStateListener(stateListener);
 			extension.initComposites(container);
-//			extension.initView();
-			
 		}
 		refreshPart();
 		decorate();

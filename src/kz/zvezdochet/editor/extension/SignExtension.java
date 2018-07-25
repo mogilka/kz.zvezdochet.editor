@@ -39,4 +39,9 @@ public class SignExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet/icons/constellation.gif";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("signs");
+	}
 }

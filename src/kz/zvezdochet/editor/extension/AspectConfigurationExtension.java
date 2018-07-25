@@ -30,4 +30,9 @@ public class AspectConfigurationExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet.analytics/icons/aspectconf.png";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("aspectconfigurations");
+	}
 }

@@ -36,4 +36,9 @@ public class PlanetExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet/icons/planet.gif";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("planets");
+	}
 }

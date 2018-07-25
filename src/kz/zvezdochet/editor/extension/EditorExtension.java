@@ -1,7 +1,10 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.ui.extension.ModelExtension;
+import kz.zvezdochet.core.ui.view.ListView;
 
 /**
  * Прототип расширения справочника
@@ -95,4 +98,7 @@ public abstract class EditorExtension extends ModelExtension {
 //			listener.onCancel((Model)((ModelListView)view).getModel());
 //		}
 //	}
+
+	@Override
+	public void initFilter(ListView listView, Composite parent) {}
 }

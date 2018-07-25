@@ -39,4 +39,9 @@ public class AspectTypeExtension extends DictionaryExtension {
 	public String getIconURI() {
 		return "platform:/plugin/kz.zvezdochet/icons/aspectype.png";
 	}
+
+	@Override
+	public boolean canHandle(Object object) {
+		return object.equals("aspecttypes");
+	}
 }
