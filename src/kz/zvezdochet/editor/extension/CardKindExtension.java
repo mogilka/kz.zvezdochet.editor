@@ -1,9 +1,9 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.bean.CardKind;
-import kz.zvezdochet.analytics.service.CardKindService;
+import kz.zvezdochet.bean.CardKind;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
+import kz.zvezdochet.service.CardKindService;
 
 /**
  * Расширение справочника видов космограммы
