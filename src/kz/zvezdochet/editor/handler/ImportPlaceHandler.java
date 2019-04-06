@@ -21,6 +21,10 @@ import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 
+/**
+ * Обработчик импорта городов
+ * @author Natalie Didenko
+ */
 public class ImportPlaceHandler extends Handler {
 	@Inject
 	private EPartService partService;

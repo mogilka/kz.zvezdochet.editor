@@ -11,7 +11,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
  * Импорт городов
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class ImportPlacePart extends ImportPart {
 
