@@ -24,7 +24,7 @@ import kz.zvezdochet.core.ui.view.ModelLabelProvider;
 
 /**
  * Расширение справочника Зодиакальных градусов
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class DegreeExtension extends DictionaryExtension {
 

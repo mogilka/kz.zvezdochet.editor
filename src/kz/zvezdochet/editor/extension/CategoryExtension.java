@@ -13,7 +13,7 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника категорий
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class CategoryExtension extends EditorExtension {
 

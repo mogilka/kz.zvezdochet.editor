@@ -10,7 +10,7 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * Представление публикации для отображения в браузере
- * @author Nataly Didenko
+ * @author Natalie Didenko
  *
  */
 public class BrowserPart extends BrowserModelView {

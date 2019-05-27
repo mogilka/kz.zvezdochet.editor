@@ -16,7 +16,7 @@ import org.eclipse.swt.widgets.Display;
 
 /**
  * Расширение справочника Планеты в астрологических домах
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class PlanetHouseExtension extends EditorExtension {
 

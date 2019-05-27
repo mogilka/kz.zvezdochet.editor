@@ -7,7 +7,7 @@ import kz.zvezdochet.service.ZoneService;
 
 /**
  * Расширение справочника Зоны
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class ZoneExtension extends DictionaryExtension {
 

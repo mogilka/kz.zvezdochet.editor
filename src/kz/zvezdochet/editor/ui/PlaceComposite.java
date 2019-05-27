@@ -21,7 +21,7 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * Композит АТЕ
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class PlaceComposite extends EditorComposite {
 	private Text txLatitude;

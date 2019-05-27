@@ -11,7 +11,7 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника домов
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class HouseExtension extends DictionaryExtension {
 

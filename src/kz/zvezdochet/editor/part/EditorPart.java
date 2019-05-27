@@ -22,7 +22,7 @@ import kz.zvezdochet.editor.extension.EditorExtension;
 
 /**
  * Редактор справочника, отображающий композиты расширений
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class EditorPart extends ModelPart implements IExtendableView {
 	/**

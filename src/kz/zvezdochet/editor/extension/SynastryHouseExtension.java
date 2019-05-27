@@ -5,7 +5,7 @@ import kz.zvezdochet.core.service.IModelService;
 
 /**
  * Расширение справочника Планеты в синастрических домах
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class SynastryHouseExtension extends PlanetHouseExtension {
 

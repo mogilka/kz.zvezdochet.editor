@@ -14,7 +14,7 @@ import org.eclipse.swt.events.SelectionListener;
 
 /**
  * Прототип композита, встраиваемого в редактор справочника
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public abstract class EditorComposite extends ModelComposite {
 	/**

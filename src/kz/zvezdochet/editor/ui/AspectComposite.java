@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * Композит типа аспекта
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class AspectComposite extends EditorComposite {
 	private ComboViewer cvType;

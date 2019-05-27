@@ -7,7 +7,7 @@ import kz.zvezdochet.direction.service.DirectionService;
 
 /**
  * Расширение справочника Дирекции планет по астрологическим домам
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class DirectionExtension extends PlanetHouseExtension {
 

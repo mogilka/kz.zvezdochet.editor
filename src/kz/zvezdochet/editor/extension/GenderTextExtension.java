@@ -13,7 +13,7 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника толкований
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class GenderTextExtension extends ModelExtension {
 

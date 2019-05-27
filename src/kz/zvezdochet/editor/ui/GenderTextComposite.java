@@ -17,7 +17,7 @@ import org.eclipse.ui.forms.widgets.Section;
 /**
  * Композит редактора справочника для моделей,
  * имеющих текст и гендерные описания
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class GenderTextComposite extends EditorComposite {
 	private Text txText;

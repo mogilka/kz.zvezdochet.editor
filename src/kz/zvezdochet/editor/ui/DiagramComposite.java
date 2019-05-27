@@ -21,7 +21,7 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * Композит диаграммного объекта
- * @author Nataly 
+ * @author Natalie Didenko 
  */
 public class DiagramComposite extends EditorComposite {
 	protected Label lbColor;

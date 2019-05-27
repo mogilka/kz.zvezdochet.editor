@@ -8,7 +8,7 @@ import kz.zvezdochet.core.ui.view.ListView;
 
 /**
  * Прототип расширения справочника
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public abstract class EditorExtension extends ModelExtension {
 	

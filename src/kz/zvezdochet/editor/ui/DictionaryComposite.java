@@ -20,7 +20,7 @@ import org.eclipse.ui.forms.widgets.Section;
 /**
  * Композит редактора справочника для моделей,
  * имеющих наименование, код и описание
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class DictionaryComposite extends EditorComposite {
 	protected Text txtName;

@@ -7,7 +7,7 @@ import kz.zvezdochet.service.PositionTypeService;
 
 /**
  * Расширение справочника позиций планет
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class PositionTypeExtension extends DictionaryExtension {
 

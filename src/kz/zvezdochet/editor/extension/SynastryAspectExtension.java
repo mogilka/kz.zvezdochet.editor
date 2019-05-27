@@ -5,7 +5,7 @@ import kz.zvezdochet.core.service.IModelService;
 
 /**
  * Расширение справочника Синастрические аспекты планет
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class SynastryAspectExtension extends PlanetAspectExtension {
 

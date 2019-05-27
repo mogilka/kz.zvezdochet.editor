@@ -32,7 +32,7 @@ import kz.zvezdochet.service.SignService;
  * Синастрические аспекты<br>
  * Планеты в синастрических домах
  * TODO не слишком ли много типов?
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class PlanetSignComposite extends EditorComposite {
 	protected ComboViewer cvType;

@@ -15,7 +15,7 @@ import kz.zvezdochet.service.PlanetService;
 
 /**
  * Композит справочника "Планеты в астрологических домах"
- * @author Nataly 
+ * @author Natalie Didenko
  */
 public class PlanetHouseComposite extends PlanetSignComposite {
 	

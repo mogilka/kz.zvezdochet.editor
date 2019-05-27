@@ -7,7 +7,7 @@ import kz.zvezdochet.service.HalfsphereService;
 
 /**
  * Расширение справочника полусфер
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class HalfsphereExtension extends DictionaryExtension {
 

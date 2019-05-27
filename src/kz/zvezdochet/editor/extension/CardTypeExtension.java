@@ -7,7 +7,7 @@ import kz.zvezdochet.core.service.IModelService;
 
 /**
  * Расширение справочника типов космограммы
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class CardTypeExtension extends DictionaryExtension {
 

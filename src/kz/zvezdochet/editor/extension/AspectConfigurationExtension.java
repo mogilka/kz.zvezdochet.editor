@@ -7,7 +7,7 @@ import kz.zvezdochet.core.service.IModelService;
 
 /**
  * Расширение справочника конфигураций аспектов
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class AspectConfigurationExtension extends DictionaryExtension {
 

@@ -11,7 +11,7 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника видов аспектов
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class AspectTypeExtension extends DictionaryExtension {
 

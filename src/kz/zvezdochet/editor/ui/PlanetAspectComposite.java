@@ -16,7 +16,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 
 /**
  * Композит справочника "Аспекты планет"
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class PlanetAspectComposite extends PlanetSignComposite {
 	

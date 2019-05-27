@@ -14,7 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника Административно-территориальных единиц
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class PlaceExtension extends EditorExtension {
 

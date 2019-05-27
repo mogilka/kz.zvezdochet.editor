@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Label;
 
 /**
  * Композит синастрии планет в знаках партнеров
- * @author Nataly 
+ * @author Natalie Didenko 
  */
 public class SynastrySignComposite extends EditorComposite {
 	protected ComboViewer cvPlanet;

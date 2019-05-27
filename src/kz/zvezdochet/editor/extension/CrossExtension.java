@@ -7,7 +7,7 @@ import kz.zvezdochet.service.CrossService;
 
 /**
  * Расширение справочника крестов
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class CrossExtension extends DictionaryExtension {
 

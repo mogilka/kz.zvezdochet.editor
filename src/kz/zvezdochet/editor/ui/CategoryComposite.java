@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * Композит категории
- * @author Nataly 
+ * @author Natalie Dienko 
  */
 public class CategoryComposite extends EditorComposite {
 	private Text txPriority;

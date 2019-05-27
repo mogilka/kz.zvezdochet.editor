@@ -5,7 +5,7 @@ import kz.zvezdochet.direction.service.DirectionAspectService;
 
 /**
  * Расширение справочника Дирекции планет
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class DirectionAspectExtension extends PlanetAspectExtension {
 

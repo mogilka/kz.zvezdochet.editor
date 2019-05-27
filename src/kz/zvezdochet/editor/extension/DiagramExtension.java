@@ -11,7 +11,7 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * Прототип расширения справочника диаграммных объектов
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class DiagramExtension extends DictionaryExtension { 
 

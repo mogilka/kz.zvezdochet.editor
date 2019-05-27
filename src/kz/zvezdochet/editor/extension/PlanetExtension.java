@@ -9,7 +9,7 @@ import kz.zvezdochet.service.PlanetService;
 
 /**
  * Расширение справочника Планет
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class PlanetExtension extends DictionaryExtension {
 

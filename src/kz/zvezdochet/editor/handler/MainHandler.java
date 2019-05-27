@@ -10,7 +10,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService;
 
 /**
  * Обработчик открытия перспективы справочников
- * @author Nataly Didenko
+ * @author Natalie Didenko
  *
  */
 public class MainHandler extends Handler {

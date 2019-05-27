@@ -7,7 +7,7 @@ import kz.zvezdochet.service.ElementService;
 
 /**
  * Расширение справочника стихий
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class ElementExtension extends DictionaryExtension {
 

@@ -11,7 +11,7 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника знаков Зодиака
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class SignExtension extends DictionaryExtension {
 

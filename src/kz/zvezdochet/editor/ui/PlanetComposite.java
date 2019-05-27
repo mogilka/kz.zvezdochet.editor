@@ -19,7 +19,7 @@ import org.eclipse.ui.forms.widgets.Section;
 
 /**
  * Композит планеты
- * @author Nataly 
+ * @author Natalie Didenko
  */
 public class PlanetComposite extends EditorComposite {
 	private Text txScore;

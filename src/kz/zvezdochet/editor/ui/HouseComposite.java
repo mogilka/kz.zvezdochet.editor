@@ -15,7 +15,7 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * Композит астрологического дома
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class HouseComposite extends EditorComposite {
 	private Text txShort;

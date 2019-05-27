@@ -4,7 +4,7 @@ import kz.zvezdochet.editor.part.EditorPart;
 
 /**
  * Обработчик изменений состояния расширений справочника 
- * @author Nataly Didenko
+ * @author Natalie Didenko
  *
  */
 public class EditorStateListener implements IEditorStateListener {

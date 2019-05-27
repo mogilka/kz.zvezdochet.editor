@@ -16,7 +16,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 
 /**
  * Обработчик открытия браузера редактора
- * @author Nataly Didenko
+ * @author Natalie Didenko
  *
  */
 public class BrowserHandler extends Handler {

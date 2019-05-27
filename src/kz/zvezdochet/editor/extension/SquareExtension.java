@@ -7,7 +7,7 @@ import kz.zvezdochet.service.SquareService;
 
 /**
  * Расширение справочника квадратов
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class SquareExtension extends DictionaryExtension {
 

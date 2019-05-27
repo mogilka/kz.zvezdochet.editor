@@ -7,7 +7,7 @@ import kz.zvezdochet.service.YinYangService;
 
 /**
  * Расширение справочника Инь-Ян
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class YinYangExtension extends DictionaryExtension {
 

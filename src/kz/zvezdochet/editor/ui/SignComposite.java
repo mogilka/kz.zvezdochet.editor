@@ -16,7 +16,7 @@ import org.eclipse.swt.widgets.Text;
 
 /**
  * Композит знака Зодиака
- * @author Nataly 
+ * @author Natalie Didenko 
  */
 public class SignComposite extends EditorComposite {
 	private Text txInitialPoint;

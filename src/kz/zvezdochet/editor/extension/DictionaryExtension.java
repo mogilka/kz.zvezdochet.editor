@@ -14,7 +14,7 @@ import kz.zvezdochet.editor.ui.DictionaryComposite;
 
 /**
  * Расширение справочника
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class DictionaryExtension extends ModelExtension {
 

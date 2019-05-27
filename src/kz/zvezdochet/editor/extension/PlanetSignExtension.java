@@ -13,7 +13,7 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника Планеты в знаках Зодиака
- * @author Nataly Didenko
+ * @author Natalie Didenko
  */
 public class PlanetSignExtension extends EditorExtension {
 

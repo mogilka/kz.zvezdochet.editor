@@ -11,7 +11,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService;
 
 /**
  * Обработчик открытия справочника
- * @author Nataly Didenko
+ * @author Natalie Didenko
  *
  */
 public class DictHandler extends Handler {

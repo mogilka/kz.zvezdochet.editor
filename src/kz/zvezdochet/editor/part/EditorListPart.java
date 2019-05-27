@@ -23,7 +23,7 @@ import kz.zvezdochet.editor.Activator;
 
 /**
  * Представление списка справочника
- * @author Nataly Didenko
+ * @author Natalie Didenko
  *
  */
 public class EditorListPart extends ModelListView implements ISaveListener {
