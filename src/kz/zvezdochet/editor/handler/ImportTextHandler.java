@@ -82,6 +82,7 @@ public class ImportTextHandler extends Handler {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void importAspectConfigurations(MPart part) {
 //		try {
 //			updateStatus("Поиск конфигураций аспектов", false);
