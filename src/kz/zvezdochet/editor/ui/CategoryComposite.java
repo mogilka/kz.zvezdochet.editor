@@ -1,16 +1,5 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.analytics.bean.Category;
-import kz.zvezdochet.bean.Planet;
-import kz.zvezdochet.core.service.DataAccessException;
-import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
-import kz.zvezdochet.core.ui.listener.DigitInputListener;
-import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
-import kz.zvezdochet.core.ui.util.DialogUtil;
-import kz.zvezdochet.core.ui.util.GUIutil;
-import kz.zvezdochet.core.ui.view.View;
-import kz.zvezdochet.service.PlanetService;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -21,6 +10,17 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+
+import kz.zvezdochet.analytics.bean.Category;
+import kz.zvezdochet.bean.Planet;
+import kz.zvezdochet.core.service.DataAccessException;
+import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
+import kz.zvezdochet.core.ui.listener.DigitInputListener;
+import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
+import kz.zvezdochet.core.ui.util.DialogUtil;
+import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.View;
+import kz.zvezdochet.service.PlanetService;
 
 /**
  * Композит категории

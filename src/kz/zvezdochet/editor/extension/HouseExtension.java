@@ -1,13 +1,13 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.bean.House;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.HouseComposite;
 import kz.zvezdochet.service.HouseService;
-
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника домов

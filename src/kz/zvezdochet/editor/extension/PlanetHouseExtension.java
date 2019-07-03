@@ -1,5 +1,11 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+
 import kz.zvezdochet.analytics.bean.PlanetHouseText;
 import kz.zvezdochet.analytics.service.PlanetHouseService;
 import kz.zvezdochet.core.bean.Model;
@@ -7,12 +13,6 @@ import kz.zvezdochet.core.service.IModelService;
 import kz.zvezdochet.core.ui.view.ModelLabelProvider;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.PlanetHouseComposite;
-
-import org.eclipse.jface.viewers.IBaseLabelProvider;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 
 /**
  * Расширение справочника Планеты в астрологических домах

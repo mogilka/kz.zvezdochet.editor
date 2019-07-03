@@ -2,6 +2,9 @@ package kz.zvezdochet.editor.ui;
 
 import java.util.List;
 
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
+
 import kz.zvezdochet.analytics.bean.PlanetAspectText;
 import kz.zvezdochet.bean.AspectType;
 import kz.zvezdochet.bean.Planet;
@@ -10,9 +13,6 @@ import kz.zvezdochet.core.service.DataAccessException;
 import kz.zvezdochet.core.ui.provider.DictionaryLabelProvider;
 import kz.zvezdochet.service.AspectService;
 import kz.zvezdochet.service.PlanetService;
-
-import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.IStructuredSelection;
 
 /**
  * Композит справочника "Аспекты планет"

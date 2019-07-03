@@ -1,13 +1,13 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.bean.Aspect;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.AspectComposite;
 import kz.zvezdochet.service.AspectService;
-
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника аспектов

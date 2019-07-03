@@ -1,10 +1,5 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.bean.Planet;
-import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
-import kz.zvezdochet.core.ui.listener.NumberInputListener;
-import kz.zvezdochet.core.ui.view.View;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
@@ -16,6 +11,11 @@ import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
+
+import kz.zvezdochet.bean.Planet;
+import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
+import kz.zvezdochet.core.ui.listener.NumberInputListener;
+import kz.zvezdochet.core.ui.view.View;
 
 /**
  * Композит планеты

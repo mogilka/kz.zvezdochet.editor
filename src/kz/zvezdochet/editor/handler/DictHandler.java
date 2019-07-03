@@ -2,12 +2,12 @@ package kz.zvezdochet.editor.handler;
 
 import javax.inject.Named;
 
-import kz.zvezdochet.core.handler.Handler;
-import kz.zvezdochet.editor.part.EditorListPart;
-
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
+
+import kz.zvezdochet.core.handler.Handler;
+import kz.zvezdochet.editor.part.EditorListPart;
 
 /**
  * Обработчик открытия справочника

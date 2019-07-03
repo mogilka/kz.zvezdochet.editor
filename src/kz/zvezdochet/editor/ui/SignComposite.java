@@ -1,10 +1,5 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.bean.Sign;
-import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
-import kz.zvezdochet.core.ui.view.View;
-import kz.zvezdochet.core.util.CalcUtil;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
@@ -13,6 +8,11 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.widgets.Text;
+
+import kz.zvezdochet.bean.Sign;
+import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
+import kz.zvezdochet.core.ui.view.View;
+import kz.zvezdochet.core.util.CalcUtil;
 
 /**
  * Композит знака Зодиака

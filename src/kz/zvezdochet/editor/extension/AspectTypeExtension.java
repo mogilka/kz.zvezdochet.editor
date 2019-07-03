@@ -1,13 +1,13 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.bean.AspectType;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.AspectTypeComposite;
 import kz.zvezdochet.service.AspectTypeService;
-
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника видов аспектов

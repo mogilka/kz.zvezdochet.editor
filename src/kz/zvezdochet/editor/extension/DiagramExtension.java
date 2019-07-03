@@ -1,13 +1,13 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.core.bean.DiagramObject;
 import kz.zvezdochet.core.bean.Dictionary;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.DiagramComposite;
-
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Прототип расширения справочника диаграммных объектов

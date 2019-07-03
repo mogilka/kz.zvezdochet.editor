@@ -2,17 +2,17 @@ package kz.zvezdochet.editor.handler;
 
 import javax.inject.Inject;
 
-import kz.zvezdochet.core.bean.Model;
-import kz.zvezdochet.core.bean.TextGenderDictionary;
-import kz.zvezdochet.core.handler.Handler;
-import kz.zvezdochet.core.ui.view.ModelView;
-import kz.zvezdochet.editor.part.EditorPart;
-
 import org.eclipse.e4.core.contexts.Active;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
+
+import kz.zvezdochet.core.bean.Model;
+import kz.zvezdochet.core.bean.TextGenderDictionary;
+import kz.zvezdochet.core.handler.Handler;
+import kz.zvezdochet.core.ui.view.ModelView;
+import kz.zvezdochet.editor.part.EditorPart;
 
 /**
  * Обработчик открытия браузера редактора

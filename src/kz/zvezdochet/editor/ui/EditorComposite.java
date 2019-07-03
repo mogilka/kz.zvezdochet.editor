@@ -1,8 +1,5 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.core.ui.view.ModelComposite;
-import kz.zvezdochet.editor.extension.IEditorStateListener;
-
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.events.ModifyEvent;
@@ -11,6 +8,9 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+
+import kz.zvezdochet.core.ui.view.ModelComposite;
+import kz.zvezdochet.editor.extension.IEditorStateListener;
 
 /**
  * Прототип композита, встраиваемого в редактор справочника

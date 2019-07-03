@@ -1,5 +1,8 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.bean.Place;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
@@ -8,9 +11,6 @@ import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.core.util.CalcUtil;
 import kz.zvezdochet.editor.ui.PlaceComposite;
 import kz.zvezdochet.service.PlaceService;
-
-import org.eclipse.jface.viewers.IBaseLabelProvider;
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника Административно-территориальных единиц

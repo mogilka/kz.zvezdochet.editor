@@ -1,5 +1,15 @@
 package kz.zvezdochet.editor.ui;
 
+import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.jface.layout.GridLayoutFactory;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Label;
+
 import kz.zvezdochet.analytics.bean.SynastryText;
 import kz.zvezdochet.bean.Planet;
 import kz.zvezdochet.bean.Sign;
@@ -11,16 +21,6 @@ import kz.zvezdochet.core.ui.util.GUIutil;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.service.PlanetService;
 import kz.zvezdochet.service.SignService;
-
-import org.eclipse.jface.layout.GridDataFactory;
-import org.eclipse.jface.layout.GridLayoutFactory;
-import org.eclipse.jface.viewers.ArrayContentProvider;
-import org.eclipse.jface.viewers.ComboViewer;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Label;
 
 /**
  * Композит синастрии планет в знаках партнеров

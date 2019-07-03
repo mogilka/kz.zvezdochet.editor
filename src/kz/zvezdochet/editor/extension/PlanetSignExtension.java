@@ -1,5 +1,8 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.analytics.bean.PlanetSignText;
 import kz.zvezdochet.analytics.service.PlanetSignService;
 import kz.zvezdochet.core.bean.Model;
@@ -7,9 +10,6 @@ import kz.zvezdochet.core.service.IModelService;
 import kz.zvezdochet.core.ui.view.ModelLabelProvider;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.PlanetSignComposite;
-
-import org.eclipse.jface.viewers.IBaseLabelProvider;
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника Планеты в знаках Зодиака

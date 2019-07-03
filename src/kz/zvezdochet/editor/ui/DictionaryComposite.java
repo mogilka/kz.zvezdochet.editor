@@ -1,12 +1,5 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.core.bean.Dictionary;
-import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
-import kz.zvezdochet.core.ui.util.DialogUtil;
-import kz.zvezdochet.core.ui.util.GUIutil;
-import kz.zvezdochet.core.ui.view.Messages;
-import kz.zvezdochet.core.ui.view.View;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
@@ -16,6 +9,13 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
+
+import kz.zvezdochet.core.bean.Dictionary;
+import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
+import kz.zvezdochet.core.ui.util.DialogUtil;
+import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.Messages;
+import kz.zvezdochet.core.ui.view.View;
 
 /**
  * Композит редактора справочника для моделей,

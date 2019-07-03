@@ -1,13 +1,13 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.bean.Sign;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.SignComposite;
 import kz.zvezdochet.service.SignService;
-
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника знаков Зодиака

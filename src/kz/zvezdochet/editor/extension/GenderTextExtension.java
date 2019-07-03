@@ -1,5 +1,8 @@
 package kz.zvezdochet.editor.extension;
 
+import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.core.bean.ITextGender;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
@@ -7,9 +10,6 @@ import kz.zvezdochet.core.ui.extension.ModelExtension;
 import kz.zvezdochet.core.ui.view.ListView;
 import kz.zvezdochet.core.ui.view.View;
 import kz.zvezdochet.editor.ui.GenderTextComposite;
-
-import org.eclipse.jface.viewers.IBaseLabelProvider;
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Расширение справочника толкований

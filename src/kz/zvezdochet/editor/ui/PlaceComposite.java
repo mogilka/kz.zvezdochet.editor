@@ -1,14 +1,5 @@
 package kz.zvezdochet.editor.ui;
 
-import kz.zvezdochet.bean.Place;
-import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
-import kz.zvezdochet.core.ui.listener.NumberInputListener;
-import kz.zvezdochet.core.ui.util.DialogUtil;
-import kz.zvezdochet.core.ui.util.GUIutil;
-import kz.zvezdochet.core.ui.view.View;
-import kz.zvezdochet.core.util.CalcUtil;
-import kz.zvezdochet.part.Messages;
-
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
@@ -18,6 +9,15 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+
+import kz.zvezdochet.bean.Place;
+import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
+import kz.zvezdochet.core.ui.listener.NumberInputListener;
+import kz.zvezdochet.core.ui.util.DialogUtil;
+import kz.zvezdochet.core.ui.util.GUIutil;
+import kz.zvezdochet.core.ui.view.View;
+import kz.zvezdochet.core.util.CalcUtil;
+import kz.zvezdochet.part.Messages;
 
 /**
  * Композит АТЕ

@@ -8,6 +8,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.eclipse.e4.core.di.annotations.Execute;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
+
 import kz.zvezdochet.bean.Place;
 import kz.zvezdochet.core.handler.Handler;
 import kz.zvezdochet.core.ui.util.DialogUtil;
@@ -16,10 +20,6 @@ import kz.zvezdochet.core.util.PlatformUtil;
 import kz.zvezdochet.editor.Activator;
 import kz.zvezdochet.editor.part.ImportPlacePart;
 import kz.zvezdochet.service.PlaceService;
-
-import org.eclipse.e4.core.di.annotations.Execute;
-import org.eclipse.e4.ui.model.application.ui.basic.MPart;
-import org.eclipse.e4.ui.workbench.modeling.EPartService;
 
 /**
  * Обработчик импорта городов

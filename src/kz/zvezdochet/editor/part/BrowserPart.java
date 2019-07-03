@@ -2,11 +2,11 @@ package kz.zvezdochet.editor.part;
 
 import javax.annotation.PostConstruct;
 
+import org.eclipse.swt.widgets.Composite;
+
 import kz.zvezdochet.core.bean.TextGenderDictionary;
 import kz.zvezdochet.core.ui.view.BrowserModelView;
 import kz.zvezdochet.core.ui.view.View;
-
-import org.eclipse.swt.widgets.Composite;
 
 /**
  * Представление публикации для отображения в браузере

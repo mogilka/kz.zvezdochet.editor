@@ -1,13 +1,13 @@
 package kz.zvezdochet.editor.part;
 
+import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
+
 import kz.zvezdochet.bean.Place;
 import kz.zvezdochet.core.ui.view.ModelLabelProvider;
 import kz.zvezdochet.core.util.DateUtil;
 import kz.zvezdochet.part.ImportPart;
-
-import org.eclipse.jface.viewers.IBaseLabelProvider;
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
  * Импорт городов
