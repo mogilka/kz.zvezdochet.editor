@@ -58,6 +58,8 @@ public class ImportPlaceHandler extends Handler {
 					back.setLongitude(place.getLongitude());
 					back.setParentid(place.getParentid());
 					back.setType(place.getType());
+					back.setDst(place.isDst());
+					back.setZone(place.getZone());
 					service.save(back);
 					log.append("Старый обновлён: " + back.toLog() + "\n");
 					++updated;
