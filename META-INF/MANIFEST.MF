@@ -41,6 +41,7 @@ Require-Bundle: org.eclipse.ui,
   javax.inject
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: javax.inject;version="1.0.0",
-  kz.zvezdochet.direction.bean,
-  kz.zvezdochet.direction.service
+ kz.zvezdochet.direction.bean,
+ kz.zvezdochet.direction.service,
+ org.eclipse.nebula.widgets.cdatetime
 Bundle-ActivationPolicy: lazy
