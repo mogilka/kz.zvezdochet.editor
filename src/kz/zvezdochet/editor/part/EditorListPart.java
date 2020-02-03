@@ -68,7 +68,7 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 			extension.initFilter(this, grFilter);
 			grFilter.layout(true, true);
 			grFilter.setSize(grFilter.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-			container.layout(true, true);
+			refreshView();
 		}
 	}
 
@@ -118,7 +118,7 @@ public class EditorListPart extends ModelListView implements ISaveListener {
 
 	@Override
 	public void initFilter(Composite parent) {
-		grFilter = new Group(container, SWT.NONE);
+		grFilter = new Group(parent, SWT.NONE);
 		grFilter.setText("Поиск");
 		grFilter.setLayout(new GridLayout());
 	}
