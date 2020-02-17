@@ -17,8 +17,7 @@ public class BrowserPart extends BrowserModelView {
 
 	@PostConstruct @Override
 	public View create(Composite parent) {
-		super.create(parent);
-		return null;
+		return super.create(parent);
 	}
 
 	@Override
