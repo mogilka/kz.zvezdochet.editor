@@ -1,9 +1,9 @@
 package kz.zvezdochet.editor.extension;
 
-import kz.zvezdochet.analytics.bean.AspectConfiguration;
-import kz.zvezdochet.analytics.service.AspectConfigurationService;
+import kz.zvezdochet.bean.AspectConfiguration;
 import kz.zvezdochet.core.bean.Model;
 import kz.zvezdochet.core.service.IModelService;
+import kz.zvezdochet.service.AspectConfigurationService;
 
 /**
  * Расширение справочника конфигураций аспектов
