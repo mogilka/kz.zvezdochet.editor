@@ -104,8 +104,8 @@ public class HouseComposite extends EditorComposite {
 				txDesignation.setText(house.getDesignation());
 			if (house.getName() != null)
 				txHeader.setText(house.getName());
-			if (house.getLinkName() != null)
-				txLink.setText(house.getLinkName());
+			if (house.getCategory() != null)
+				txLink.setText(house.getCategory());
 			spNumber.setSelection(house.getNumber());
 		} 
 	}
@@ -126,7 +126,7 @@ public class HouseComposite extends EditorComposite {
 		House house = (House)model;
 		house.setName(txShort.getText());
 		house.setDesignation(txDesignation.getText());
-		house.setLinkName(txLink.getText());
+		house.setCategory(txLink.getText());
 		house.setNumber(spNumber.getSelection());
 	}
 
