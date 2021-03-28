@@ -47,7 +47,7 @@ public class ImportPlacePart extends ImportPart {
 						case 3: return model.getDescription();
 						case 4: return String.valueOf(model.getLatitude());
 						case 5: return String.valueOf(model.getLongitude());
-						case 6: return String.valueOf(model.getGreenwich());
+						case 6: return String.valueOf(model.getZone());
 						case 7: return DateUtil.formatDateTime(model.getDate());
 					}
 				return null;
