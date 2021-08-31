@@ -62,7 +62,7 @@ public class ImportPlaceHandler extends Handler {
 					back.setZone(place.getZone());
 					back.setNameEn(place.getNameEn());
 					back.setDescrEn(place.getDescrEn());
-					service.save(back);
+					back.save();
 					log.append("Старый обновлён: " + back.toLog() + "\n");
 					++updated;
 				}

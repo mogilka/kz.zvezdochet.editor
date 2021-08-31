@@ -58,7 +58,7 @@ public class ImportTextHandler extends Handler {
 					back.setLongitude(place.getLongitude());
 					back.setParentid(place.getParentid());
 					back.setType(place.getType());
-					service.save(back);
+					back.save();
 					log.append("Старый обновлён: " + back.toLog() + "\n");
 					++updated;
 				}
@@ -135,7 +135,7 @@ public class ImportTextHandler extends Handler {
 //					back.setLongitude(model.getLongitude());
 //					back.setParentid(model.getParentid());
 //					back.setType(model.getType());
-//					service.save(back);
+//					back.save();
 //					log.append("Старый обновлён: " + back.toLog() + "\n");
 //					++updated;
 //				}
