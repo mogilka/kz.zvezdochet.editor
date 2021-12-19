@@ -5,7 +5,6 @@ import java.util.Date;
 
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import kz.zvezdochet.bean.Place;
 import kz.zvezdochet.core.service.DataAccessException;
@@ -55,15 +54,15 @@ public class ImportPlacePart extends ImportPart {
 			
 			@Override
 			public Image getColumnImage(Object element, int columnIndex) {
-				Place model = (Place)element;
-				switch (columnIndex) {
-					case 0: String file = "map-marker.png";
-						if (model.getType().equals("country"))
-							file = "globe.png";
-						else if (model.getType().equals("region"))
-							file = "region.png";
-						return AbstractUIPlugin.imageDescriptorFromPlugin("kz.zvezdochet", "icons/" + file).createImage();
-				}
+//				Place model = (Place)element;
+//				switch (columnIndex) {
+//					case 0: String file = "map-marker.png";
+//						if (model.getType().equals("country"))
+//							file = "globe.png";
+//						else if (model.getType().equals("region"))
+//							file = "region.png";
+//						return AbstractUIPlugin.imageDescriptorFromPlugin("kz.zvezdochet", "icons/" + file).createImage();
+//				}
 				return null;
 			}
 		};
