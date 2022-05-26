@@ -4,7 +4,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.DateTime;
+import org.eclipse.swt.widgets.Group;
 
 import kz.zvezdochet.bean.Place;
 import kz.zvezdochet.core.service.DataAccessException;
@@ -18,6 +23,8 @@ import kz.zvezdochet.service.PlaceService;
  * @author Natalie Didenko
  */
 public class ImportPlacePart extends ImportPart {
+	protected DateTime dtDate;
+	protected DateTime dtTime;
 
 	@Override
 	protected String[] initTableColumns() {
@@ -79,5 +86,30 @@ public class ImportPlacePart extends ImportPart {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void initFilter(Composite parent) {
+		grFilter = new Group(parent, SWT.NONE);
+		grFilter.setText("Поиск");
+		grFilter.setLayout(new GridLayout());
+		dtDate = new DateTime(grFilter, SWT.DROP_DOWN);
+		dtTime = new DateTime(grFilter, SWT.TIME);
+	}
+
+	/**
+	 * Поиск выбранной даты
+	 * @return дата последнего импорта
+	 */
+	@Override
+	public long getObject() {
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.DAY_OF_MONTH, dtDate.getDay());
+		calendar.set(Calendar.MONTH, dtDate.getMonth());
+		calendar.set(Calendar.YEAR, dtDate.getYear());
+		calendar.set(Calendar.HOUR_OF_DAY, dtTime.getHours());
+		calendar.set(Calendar.MINUTE, dtTime.getMinutes());
+		calendar.set(Calendar.SECOND, dtTime.getSeconds());
+		return calendar.getTime().getTime() / 1000;
 	}
 }
