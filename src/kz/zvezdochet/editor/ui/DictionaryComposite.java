@@ -10,11 +10,11 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Section;
 
+import kz.zvezdochet.core.Messages;
 import kz.zvezdochet.core.bean.Dictionary;
 import kz.zvezdochet.core.ui.decoration.RequiredDecoration;
 import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.ui.util.GUIutil;
-import kz.zvezdochet.core.ui.view.Messages;
 import kz.zvezdochet.core.ui.view.View;
 
 /**
