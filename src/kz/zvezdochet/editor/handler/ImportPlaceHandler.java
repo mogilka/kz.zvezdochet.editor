@@ -1,8 +1,5 @@
 package kz.zvezdochet.editor.handler;
 
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
 import java.util.Date;
 import java.util.List;
 
@@ -16,8 +13,6 @@ import kz.zvezdochet.bean.Place;
 import kz.zvezdochet.core.handler.Handler;
 import kz.zvezdochet.core.ui.util.DialogUtil;
 import kz.zvezdochet.core.util.DateUtil;
-import kz.zvezdochet.core.util.PlatformUtil;
-import kz.zvezdochet.editor.Activator;
 import kz.zvezdochet.editor.part.ImportPlacePart;
 import kz.zvezdochet.service.PlaceService;
 
@@ -70,15 +65,8 @@ public class ImportPlaceHandler extends Handler {
 			//логируем
 			log.append("Добавлено: " + imported + "\t");
 			log.append("Обновлено: " + updated + "\n\n");
-
-			String datafile = PlatformUtil.getPath(Activator.PLUGIN_ID, "/out/importplace.log").getPath(); //$NON-NLS-1$
-			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-				new FileOutputStream(datafile, true), "UTF-8"));
-			writer.append(log);
-			writer.close();
 			//TODO показывать диалог, что документ сформирован
-			//а ещё лучше открывать его
-			System.out.println("Импорт завершён");
+			System.out.println("Импорт завершён " + log);
 			updateStatus("Импорт завершён", false);
 		} catch (Exception e) {
 			DialogUtil.alertError(e);
