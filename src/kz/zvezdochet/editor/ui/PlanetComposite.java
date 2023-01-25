@@ -311,7 +311,7 @@ public class PlanetComposite extends EditorComposite {
 //			if (planet.getRetroText() != null)
 //				txRetro.setText(planet.getRetroText());
 			spNumber.setSelection(planet.getNumber());
-			btFictitious.setSelection(planet.isFictitious());
+			btFictitious.setSelection(planet.isFictious());
 		} 
 	}
 	
